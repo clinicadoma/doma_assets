@@ -24,6 +24,8 @@ IMGS = {
 }
 AUDIO_VITROLA = 'https://static.wixstatic.com/mp3/253e81_54b19efb74c5463e8ce371a49cd82da5.mp3'
 
+import plano  # textos e blocos do plano de melhorias (13/11)
+
 # Para onde cada link do protótipo leva no site novo
 LINKS = {
     '/carteira-d': '/carteira-d',
@@ -44,7 +46,7 @@ LINKS = {
     '/indique': '/indique',
     '/carteira-doma': '/carteira-doma',
     '/livro-a-travessia': '/livro-a-travessia',
-    '/nivel-introdutorio': '/nivel-introdutorio',
+    '/nivel-1': '/nivel-1',
 }
 
 CSS_BASE = r'''
@@ -275,6 +277,7 @@ def home():
     c = cortar(c, '<!-- MENU EM PÍLULAS -->', '<!-- COLUNA PRINCIPAL')
     a, b = bloco_fechado(c, '<!-- RODAPÉ -->', 'footer')
     c = c[:a] + c[b:]
+    c = plano.home(c)
     # vitrola de verdade
     a, b = bloco_fechado(c, '<!-- MOMENTO DE PAUSA -->', 'section')
     c = c[:a] + VITROLA_HTML + c[b:]
@@ -352,7 +355,7 @@ def composta(nome, titulo, blocos, extras=None):
 def planos():
     p = partes_home()
     h = heroi('📚 PLANOS DOMA', 'Planos Doma: escolha como quer fazer a sua Travessia',
-              'Todos os planos dão acesso à Travessia do Domador, um nível novo a cada mês, à comunidade e aos sorteios. O Premium inclui também sessões presenciais com a terapeuta. Os conteúdos online são material de autoconhecimento e não substituem a terapia.',
+              plano.PLANOS_TEXTO,
               'QUERO MINHA CARTEIRA GRÁTIS 🚀', '/carteira-doma',
               '🪪 Comece grátis com a Carteira Doma. Quando quiser ir além, escolha um plano.')
     return composta('planos', 'Clínica Doma — Planos',
@@ -364,7 +367,7 @@ def planos():
 def carteira():
     p = partes_home()
     h = heroi('🪪 CARTEIRA OFICIAL DOMA', 'Carteira Oficial Doma: o seu primeiro passo na Travessia',
-              'Com a sua carteira gratuita você vira um Domador, faz o Nível Introdutório completo da Travessia, ganha suas primeiras Doma Coins e tem o seu progresso salvo na sua conta. A carteira e os conteúdos online são material de autoconhecimento e não substituem a terapia.',
+              plano.CARTEIRA_TEXTO,
               'QUERO MINHA CARTEIRA GRÁTIS 🚀', '/carteira-d',
               '✨ Emissão gratuita: leva 2 minutinhos e sai na hora!')
     return composta('carteira', 'Clínica Doma — Carteira Doma',
@@ -393,6 +396,7 @@ def travessia():
     a, b = bloco_fechado(c, '<!-- RODAPÉ -->', 'footer')
     c = c[:a] + c[b:]
     c = c.replace('padding: 20px 12px 0;', 'padding: 20px 12px 28px;', 1)
+    c = plano.travessia(c, bloco_fechado)
     # planos depois do livro físico e método antes de "Como entrar" (como na página atual do site novo)
     i = c.find('<!-- A TRILHA DOS 12 NÍVEIS -->'); assert i > 0
     c = c[:i] + p['PLANOS'] + c[i:]
@@ -403,8 +407,8 @@ def travessia():
     # apoio em crise no fim (no protótipo ficava no rodapé)
     i = c.rfind('</div>', 0, c.find('</main>'))
     c = c[:i] + p['APOIO EM CRISE'].rstrip() + '\n\n    ' + c[i:]
-    c, falta = ajustar_links(c, {'#comecar': 'rolar:comecar', '#nivel-1': '/nivel-introdutorio',
-                                 '/carteira-d': '/carteira-d|voltar=/nivel-introdutorio'})
+    c, falta = ajustar_links(c, {'#comecar': 'rolar:comecar', '#nivel-1': plano.PAGINA_NIVEL_1,
+                                 '/carteira-d': '/carteira-d|voltar=' + plano.PAGINA_NIVEL_1})
     if falta:
         print('travessia: links sem destino:', falta)
     return montar('travessia', 'Clínica Doma — A Travessia', c)
@@ -416,6 +420,7 @@ def bets():
     a, b = bloco_fechado(c, '<!-- RODAPÉ -->', 'footer')
     c = c[:a] + c[b:]
     c = c.replace('padding: 20px 12px 0;', 'padding: 20px 12px 28px;', 1)
+    c = plano.bets(c)
     # o Guia de Resgate fica numa página própria (o mesmo guia interativo do site atual)
     c, n = re.subn(r'\s*<div[^>]*>Embed atual: Guia de Resgate \(investigação do vício\)</div>', '', c)
     assert n == 1, n
