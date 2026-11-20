@@ -49,7 +49,7 @@ button{cursor:pointer}
         <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, calc(var(--dw) * 4.4 / 100), 46px); line-height: 1.12; font-weight: 800; color: #ffffff">O seu ano não começa em janeiro. Começa no dia em que você decide.</h1>
         <p style="margin: 0; max-width: 600px; font-size: clamp(16px, calc(var(--dw) * 2 / 100), 18px)">A Travessia do Domador é uma jornada de um ano, um nível por mês, para encerrar ciclos velhos, encarar suas sombras e construir a sua história um mês por vez. E a sua introdução começa hoje.</p>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
-          <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)">🚀 COMEÇAR MINHA INTRODUÇÃO GRÁTIS</a>
+          <a href="#" data-rolar="comecar" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)">🚀 COMEÇAR MINHA INTRODUÇÃO GRÁTIS</a>
         </div>
         <p style="margin: 0; font-size: 14px; color: #b9c9da">🪪 Gratuito para quem tem a Carteira Doma</p>
       </section>
@@ -262,7 +262,7 @@ button{cursor:pointer}
               <li>✅ Suas primeiras Doma Coins</li>
               <li>✅ Seu progresso fica salvo na sua conta</li>
             </ul>
-            <a href="#" data-ir="/carteira-doma" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-weight: 800; text-decoration: none">EMITIR MINHA CARTEIRA GRÁTIS</a>
+            <a href="#" data-ir="/carteira-d" data-voltar="/nivel-introdutorio" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-weight: 800; text-decoration: none">EMITIR MINHA CARTEIRA GRÁTIS</a>
           </div>
           <div style="border: 3px solid #eab308; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #fffdf5">
             <h3 style="margin: 0; font-size: 19px; color: #0f2744">👑 Com um plano Doma</h3>
@@ -275,13 +275,14 @@ button{cursor:pointer}
           </div>
         </div>
         <p style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 14px; line-height: 1.55; color: #334155">ℹ️ <strong>Importante:</strong> o Plano Premium inclui sessões presenciais com a terapeuta. A Travessia, em qualquer plano, continua sendo um material de autoconhecimento e não substitui essas sessões.</p>
+        <a href="#" data-ir="/nivel-introdutorio" style="align-self: center; font-weight: 700; color: #0f2744">Já tenho carteira: entrar na minha introdução →</a>
       </section>
 
       <!-- FECHAMENTO -->
       <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; color: #e2e8f0">
         <p style="margin: 0; max-width: 560px; font-size: 17px">Pare de lutar contra a sua própria mente. Pare de esperar o momento perfeito. Encerre seus ciclos velhos agora, encare suas sombras hoje e construa a sua história um mês por vez.</p>
         <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.4 / 100), 34px); font-weight: 800; color: #ffffff">O seu verdadeiro ano começa agora. Você está pronto para a Travessia?</h2>
-        <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none">🚀 COMEÇAR MINHA INTRODUÇÃO</a>
+        <a href="#" data-rolar="comecar" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none">🚀 COMEÇAR MINHA INTRODUÇÃO</a>
       </section>
 
     <!-- APOIO EM CRISE -->
@@ -343,7 +344,7 @@ button{cursor:pointer}
     var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
     ev.preventDefault();
     if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
-    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir'),voltar:a.getAttribute('data-voltar')||''},'*'); }catch(e){}
   });
 })();
 </script>

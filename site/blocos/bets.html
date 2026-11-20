@@ -202,7 +202,7 @@ button{cursor:pointer}
     var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
     ev.preventDefault();
     if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
-    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir'),voltar:a.getAttribute('data-voltar')||''},'*'); }catch(e){}
   });
 })();
 </script>

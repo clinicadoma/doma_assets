@@ -13,7 +13,8 @@ LOCAL = 'file:///home/claude/doma/img/'
 IMGS = {
     '19fbeee13f3f57f41608447b08222d94': ('logo.webp', WIX + '253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp', 320, 384),
     '872437608d5a552867bb64fe5989085b': ('triste.jpg', GH + 'triste.jpg', 601, 645),
-    'da00a53a7610fafd4a4e9bee6a020cd2': ('carteira.jpg', WIX + '253e81_f48cb3e60df44b0082ef8062fc1ce48d~mv2.jpg', 413, 321),
+    # carteirinha recortada do fundo cinza (PNG com fundo transparente)
+    'da00a53a7610fafd4a4e9bee6a020cd2': ('carteira.png', GH + 'carteira.png', 376, 244),
     '20f9af3c72c176045c52bd25596f4132': ('bemvindo.jpg', WIX + '253e81_c6676319d5ef428ea6b9f400fa34be32~mv2.jpg', 685, 814),
     'a487a747692a79d70e2a5bad98e977a3': ('meuano.jpg', WIX + '253e81_9655ef93855746b39a7b16b0a62081b6~mv2.jpg', 712, 533),
     '7cc4dd1cc1139745e121573e3582997c': ('sala.jpg', GH + 'sala.jpg', 793, 704),
@@ -43,6 +44,7 @@ LINKS = {
     '/indique': '/indique',
     '/carteira-doma': '/carteira-doma',
     '/livro-a-travessia': '/livro-a-travessia',
+    '/nivel-introdutorio': '/nivel-introdutorio',
 }
 
 CSS_BASE = r'''
@@ -109,7 +111,7 @@ JS_BASE = r'''
     var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
     ev.preventDefault();
     if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
-    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir'),voltar:a.getAttribute('data-voltar')||''},'*'); }catch(e){}
   });
 })();
 '''
@@ -191,6 +193,9 @@ def ajustar_links(corpo, extras=None):
         if href in mapa and mapa[href] is not None:
             if mapa[href].startswith('rolar:'):
                 return '<a%shref="#" data-rolar="%s"%s>' % (antes, mapa[href][6:], depois)
+            if '|voltar=' in mapa[href]:
+                dest, volta = mapa[href].split('|voltar=')
+                return '<a%shref="#" data-ir="%s" data-voltar="%s"%s>' % (antes, dest, volta, depois)
             return '<a%shref="#" data-ir="%s"%s>' % (antes, mapa[href], depois)
         faltando.add(href)
         return m.group(0)
@@ -211,6 +216,14 @@ def montar(nome, titulo, corpo, js_extra='', css_extra=''):
         _, _, w, h = IMGS[b]
         return 'src="__BLOB_%s__" width="%d" height="%d"' % (b, w, h)
 
+    # carteirinha sem fundo: mesma altura de antes (margem compensa o recorte) e selo por cima do cartão
+    if 'da00a53a7610fafd4a4e9bee6a020cd2' in corpo:
+        antes = corpo
+        corpo = corpo.replace('style="position: absolute; top: 0; right: -8px; padding: 4px 12px;',
+                              'style="position: absolute; top: 19px; right: -8px; z-index: 2; padding: 4px 12px;')
+        corpo = corpo.replace('style="width: 100%; max-width: 300px; height: auto; display: block; border-radius: 14px; transform: rotate(-2deg);',
+                              'style="width: 100%; max-width: 300px; height: auto; display: block; margin: 19px 0; border-radius: 10px; transform: rotate(-2deg);')
+        assert corpo.count('margin: 19px 0; border-radius: 10px') == 1 and corpo.count('top: 19px; right: -8px; z-index: 2') == 1, 'bloco da carteira mudou'
     corpo = re.sub(r'src="/_blob/([a-f0-9]{32})"', img_attr, corpo)
     # vw do protótipo passa a seguir a largura de desenho (o quadro é ampliado por inteiro)
     corpo = re.sub(r'(\d+(?:\.\d+)?)vw', lambda m: 'calc(var(--dw) * %s / 100)' % m.group(1), corpo)
@@ -385,15 +398,13 @@ def travessia():
     c = c[:i] + p['PLANOS'] + c[i:]
     i = c.find('<!-- ACESSO -->'); assert i > 0
     c = c[:i] + p['MÉTODO + LIVRO'] + c[i:]
-    # o Nível Introdutório interativo ainda não existe no site novo: sem o atalho "já tenho carteira"
-    c, n = re.subn(r'\s*<a href="#nivel-1"[^>]*>.*?</a>', '', c, flags=re.S)
-    assert n == 1, n
     c, n = re.subn(r'<a href="Main\.dc\.html"([^>]*)>VER OS PLANOS</a>', r'<a href="/planos"\1>VER OS PLANOS</a>', c)
     assert n == 1, n
     # apoio em crise no fim (no protótipo ficava no rodapé)
     i = c.rfind('</div>', 0, c.find('</main>'))
     c = c[:i] + p['APOIO EM CRISE'].rstrip() + '\n\n    ' + c[i:]
-    c, falta = ajustar_links(c, {'#comecar': '/carteira-doma', '/carteira-d': '/carteira-doma'})
+    c, falta = ajustar_links(c, {'#comecar': 'rolar:comecar', '#nivel-1': '/nivel-introdutorio',
+                                 '/carteira-d': '/carteira-d|voltar=/nivel-introdutorio'})
     if falta:
         print('travessia: links sem destino:', falta)
     return montar('travessia', 'Clínica Doma — A Travessia', c)

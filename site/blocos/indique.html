@@ -84,8 +84,8 @@ button{cursor:pointer}
       <section id="carteira" style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
         <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, calc(var(--dw) * 3.4 / 100), 34px); line-height: 1.2; font-weight: 800; color: #1a9fd9">Garanta sua Carteira Oficial Doma!</h2>
         <div style="position: relative; padding-top: 12px">
-          <span style="position: absolute; top: 0; right: -8px; padding: 4px 12px; border-radius: 999px; background: #e11d48; color: #ffffff; font-size: 12px; font-weight: 800; letter-spacing: 0.04em">EMISSÃO GRATUITA</span>
-          <img src="https://static.wixstatic.com/media/253e81_f48cb3e60df44b0082ef8062fc1ce48d~mv2.jpg" width="413" height="321" alt="Modelo da Carteira Oficial Doma com espaço para foto, nome e registro" style="width: 100%; max-width: 300px; height: auto; display: block; border-radius: 14px; transform: rotate(-2deg); box-shadow: 0 10px 24px rgba(15, 39, 68, 0.18)">
+          <span style="position: absolute; top: 19px; right: -8px; z-index: 2; padding: 4px 12px; border-radius: 999px; background: #e11d48; color: #ffffff; font-size: 12px; font-weight: 800; letter-spacing: 0.04em">EMISSÃO GRATUITA</span>
+          <img src="https://raw.githubusercontent.com/clinicadoma/doma_assets/main/site/carteira.png" width="376" height="244" alt="Modelo da Carteira Oficial Doma com espaço para foto, nome e registro" style="width: 100%; max-width: 300px; height: auto; display: block; margin: 19px 0; border-radius: 10px; transform: rotate(-2deg); box-shadow: 0 10px 24px rgba(15, 39, 68, 0.18)">
         </div>
         <p style="margin: 0; padding: 10px 16px; border-radius: 12px; background: #ecfdf5; border: 1px dashed #34d399; color: #065f46; font-size: 15px; font-weight: 600">✨ Leva 2 minutinhos e sai na hora, de graça!</p>
         <a href="#" data-ir="/carteira-d" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; text-decoration: none; box-shadow: 0 8px 20px rgba(11, 124, 184, 0.35)">QUERO EMITIR MINHA CARTEIRA GRÁTIS 🚀</a>
@@ -181,7 +181,7 @@ button{cursor:pointer}
     var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
     ev.preventDefault();
     if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
-    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir'),voltar:a.getAttribute('data-voltar')||''},'*'); }catch(e){}
   });
 })();
 </script>
