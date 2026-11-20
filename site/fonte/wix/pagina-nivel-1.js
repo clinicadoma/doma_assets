@@ -3,6 +3,11 @@
 // Vem da página do site atual; mudou só o caminho das outras páginas
 // e a carteirinha, que aqui abre sempre como página (sem janela).
 // Precisa do arquivo backend/travessia.web.js.
+//
+// 20/11/2026 - Consentimento (LGPD): as respostas dos exercícios só são
+// guardadas depois que a pessoa marca "concordo" na tela que o HTML mostra
+// no começo do nível. O "concordo" fica guardado junto com o progresso:
+//   progresso.consentimento = { aceito, quando, versao }
 // =====================================================================
 import { authentication } from 'wix-members-frontend';
 import wixLocation from 'wix-location-frontend';
@@ -14,6 +19,14 @@ const PAGINA_PLANOS = '/planos';
 const PAGINA_NIVEL_2 = '/livro-a-travessia';     // página do Livro A Travessia
 const PAGINA_CRIAR_CARTEIRINHA = '/carteira-d';  // página Minha Carteira
 const PAGINA_DESTE_NIVEL = '/nivel-1';
+const PAGINA_DA_TRAVESSIA = '/a-travessia';      // para onde vai quem responde "agora não"
+const PAGINA_PRIVACIDADE = '/politica-de-privacidade';
+const VERSAO_DO_CONSENTIMENTO = '2026-11-20';    // mude quando o texto do pedido mudar
+
+// Consentimento desta pessoa (null = ainda não concordou)
+let consentimento = null;
+// Último progresso que chegou antes do "concordo" (fica só na memória, não é guardado)
+let esperandoConsentimento = null;
 
 $w.onReady(function () {
     const html = $w(ID_DO_HTML);
@@ -28,7 +41,24 @@ $w.onReady(function () {
         } else if (msg.tipo === 'ir-nivel-2') {
             wixLocation.to(PAGINA_NIVEL_2);
         } else if (msg.tipo === 'salvar-progresso') {
-            salvarEmFila(msg.estado);
+            if (consentimento) {
+                salvarEmFila(msg.estado);
+            } else {
+                // Sem o "concordo" nada é guardado: segura na memória e pede de novo
+                esperandoConsentimento = msg.estado;
+                html.postMessage({ origem: 'wix-travessia', tipo: 'pedir-consentimento' });
+            }
+        } else if (msg.tipo === 'consentimento') {
+            if (msg.aceito) {
+                consentimento = { aceito: true, quando: new Date().toISOString(), versao: VERSAO_DO_CONSENTIMENTO };
+                if (esperandoConsentimento) {
+                    const estado = esperandoConsentimento;
+                    esperandoConsentimento = null;
+                    salvarEmFila(estado);
+                }
+            } else {
+                wixLocation.to(PAGINA_DA_TRAVESSIA);
+            }
         } else if (msg.tipo === 'pedir-carteirinha') {
             await enviarCarteirinha();
         } else if (msg.tipo === 'pedir-login') {
@@ -68,7 +98,8 @@ $w.onReady(function () {
             pendente = null;
             let r;
             try {
-                r = await salvarMeuProgresso(atual);
+                // o "concordo" vai junto com o progresso, para ficar registrado
+                r = await salvarMeuProgresso(Object.assign({}, atual, { consentimento: consentimento }));
             } catch (e) {
                 console.error('Erro ao salvar progresso:', e);
                 r = { ok: false };
@@ -83,11 +114,22 @@ $w.onReady(function () {
 
 async function buscarCarteirinha() {
     if (!authentication.loggedIn()) {
+        consentimento = null;
+        esperandoConsentimento = null;
         return { origem: 'wix-travessia', status: 'nao-logado' };
     }
     try {
         const resposta = await buscarMinhaCarteirinha();
-        return { origem: 'wix-travessia', ...resposta };
+        if (resposta && resposta.status === 'ok') {
+            const salvo = resposta.progresso && resposta.progresso.consentimento;
+            if (salvo && salvo.aceito) consentimento = salvo;
+        }
+        return {
+            origem: 'wix-travessia',
+            ...resposta,
+            consentimento: !!consentimento,
+            urlPrivacidade: wixLocation.baseUrl + PAGINA_PRIVACIDADE
+        };
     } catch (erro) {
         console.error('Erro ao buscar carteirinha:', erro);
         return { origem: 'wix-travessia', status: 'erro', detalhe: String((erro && erro.message) || erro) };

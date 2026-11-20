@@ -1,0 +1,65 @@
+<!-- CONSENTIMENTO (LGPD) - pedido antes de guardar as respostas dos exercícios.
+     Trecho colado no fim do HTML do Nível 1, logo antes de </body> (20/11/2026).
+     Conversa com o código da página (wix/pagina-nivel-1.js):
+       página -> HTML: { origem:'wix-travessia', status:'ok', consentimento:true|false, urlPrivacidade }
+                       { origem:'wix-travessia', tipo:'pedir-consentimento' }
+       HTML -> página: { origem:'travessia', tipo:'consentimento', aceito:true|false } -->
+<style>
+#dc-fundo{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:8px;background:rgba(15,39,68,.94);box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif}
+#dc-fundo.dc-aberto{display:flex}
+#dc-caixa{background:#ffffff;color:#334155;border-radius:18px;width:100%;max-width:560px;max-height:100%;overflow:auto;padding:18px 18px 14px;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.45);text-align:left;font-size:15px;line-height:1.5}
+#dc-caixa *{box-sizing:border-box}
+#dc-titulo{margin:0 0 10px;font-family:'Playfair Display',Georgia,serif;font-size:24px;line-height:1.2;font-weight:800;color:#0f2744;text-align:center}
+#dc-caixa p{margin:0 0 10px}
+#dc-caixa ul{margin:0 0 12px;padding-left:20px}
+#dc-caixa li{margin:0 0 3px}
+#dc-rotulo{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#fffbeb;border:2px solid #f7d774;color:#0f2744;font-weight:700;cursor:pointer}
+#dc-aceite{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:#0b7cb8;cursor:pointer}
+#dc-botoes{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
+#dc-botoes button{flex:1 1 150px;min-height:46px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+#dc-sim{flex-basis:270px !important;background:#0b7cb8;color:#ffffff;border:2px solid #0b7cb8}
+#dc-sim:disabled{background:#cbd5e1;border-color:#cbd5e1;color:#64748b;cursor:not-allowed}
+#dc-nao{background:#ffffff;color:#0f2744;border:2px solid #0f2744}
+#dc-rodape{margin:0 !important;font-size:12.5px;line-height:1.45;color:#64748b}
+#dc-link{color:#0b7cb8;font-weight:700}
+</style>
+<div id="dc-fundo" role="dialog" aria-modal="true" aria-labelledby="dc-titulo">
+  <div id="dc-caixa">
+    <h2 id="dc-titulo">Antes de começar 💛</h2>
+    <p>Nos exercícios da Travessia você escreve sobre você: o que sente, o que vive e, às vezes, a sua saúde. Para você continuar de onde parou, a Clínica Doma precisa guardar essas respostas na sua conta.</p>
+    <ul>
+      <li>Elas servem só para a sua Travessia. Não são usadas para propaganda nem vendidas.</li>
+      <li>Só você e a equipe autorizada da Clínica Doma têm acesso.</li>
+      <li>Você pode retirar este consentimento e pedir para apagar tudo quando quiser.</li>
+    </ul>
+    <label id="dc-rotulo" for="dc-aceite"><input type="checkbox" id="dc-aceite"><span>Eu concordo que a Clínica Doma guarde as minhas respostas da Travessia.</span></label>
+    <div id="dc-botoes">
+      <button type="button" id="dc-sim" disabled>CONCORDO E QUERO COMEÇAR</button>
+      <button type="button" id="dc-nao">AGORA NÃO</button>
+    </div>
+    <p id="dc-rodape"><a id="dc-link" href="#" target="_blank" rel="noopener">Ler a Política de privacidade</a> · A Travessia é um material de autoconhecimento. Ela não é terapia e não substitui as sessões com um psicólogo, psicanalista ou médico.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var fundo=document.getElementById('dc-fundo'), aceite=document.getElementById('dc-aceite'),
+      sim=document.getElementById('dc-sim'), nao=document.getElementById('dc-nao'), link=document.getElementById('dc-link');
+  if(!fundo||!aceite||!sim||!nao||!link) return;
+  var concordou=false, temLink=false;
+  function mandar(aceito){ try{ window.parent.postMessage({origem:'travessia',tipo:'consentimento',aceito:aceito},'*'); }catch(e){} }
+  function abrir(){ aceite.checked=false; sim.disabled=true; fundo.classList.add('dc-aberto'); }
+  function fechar(){ fundo.classList.remove('dc-aberto'); }
+  aceite.addEventListener('change',function(){ sim.disabled=!aceite.checked; });
+  sim.addEventListener('click',function(){ if(!aceite.checked) return; concordou=true; fechar(); mandar(true); });
+  nao.addEventListener('click',function(){ mandar(false); });
+  link.addEventListener('click',function(ev){ if(!temLink) ev.preventDefault(); });
+  window.addEventListener('message',function(ev){
+    var d=ev.data; if(!d||d.origem!=='wix-travessia') return;
+    if(d.tipo==='pedir-consentimento'){ concordou=false; abrir(); return; }
+    if(d.status!=='ok') return;
+    if(d.urlPrivacidade){ link.href=d.urlPrivacidade; temLink=true; }
+    var ja=d.consentimento===true||!!(d.progresso&&d.progresso.consentimento&&d.progresso.consentimento.aceito);
+    if(ja||concordou){ fechar(); } else { abrir(); }
+  });
+})();
+</script>
