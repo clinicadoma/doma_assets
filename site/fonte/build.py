@@ -26,6 +26,7 @@ AUDIO_VITROLA = 'https://static.wixstatic.com/mp3/253e81_54b19efb74c5463e8ce371a
 
 import plano  # textos e blocos do plano de melhorias (13/11)
 import paginas_novas  # páginas novas do passo 3 do plano
+import paginas_legais  # passo 5: perguntas frequentes, política de privacidade e termos de uso
 
 # Para onde cada link do protótipo leva no site novo
 LINKS = {
@@ -51,6 +52,10 @@ LINKS = {
     '/conheca-os-monstrinhos': '/conheca-os-monstrinhos',
     '/monstrinho-polvo': '/monstrinho-polvo',
     '/para-pacientes': '/para-pacientes',
+    '/perguntas-frequentes': '/perguntas-frequentes',
+    '/politica-de-privacidade': '/politica-de-privacidade',
+    '/termos-de-uso': '/termos-de-uso',
+    '#privacidade': '/politica-de-privacidade',
 }
 
 CSS_BASE = r'''
@@ -290,8 +295,6 @@ def home():
     c = c[:a] + c[b:]
     a, b = bloco_fechado(c, '<!-- DEPOIMENTOS -->', 'section')
     c = c[:a] + c[b:]
-    # "Política de privacidade" ainda não tem página no site novo: fica como texto
-    c = re.sub(r'<a href="#privacidade"[^>]*>(.*?)</a>', r'\1', c)
     c = c.replace('''<p style="margin: 8px 0 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-style: italic; font-weight: 700; color: #0f2744">Afinal, nem todo monstro que assusta vem de fora.</p>''',
                   '''<p style="margin: 8px 0 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-style: italic; font-weight: 700; color: #0f2744">Afinal, nem todo monstro que assusta vem de fora.</p>
         <div style="display: flex; justify-content: center; margin-top: 6px"><a href="/planos" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border-radius: 999px; background: #0f2744; color: #ffffff; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 18px rgba(15, 39, 68, 0.25)">🌱 CONHEÇA OS PLANOS</a></div>''')
@@ -343,13 +346,9 @@ def heroi(selo, titulo, texto, botao, destino, nota):
       """ % (selo, titulo, texto, destino, botao, nota)
 
 
-def sem_privacidade(c):
-    return re.sub(r'<a href="#privacidade"[^>]*>(.*?)</a>', r'\1', c)
-
-
 def composta(nome, titulo, blocos, extras=None):
     abre, fecha = casca()
-    c = sem_privacidade(abre + ''.join(blocos) + fecha)
+    c = abre + ''.join(blocos) + fecha
     c, falta = ajustar_links(c, extras)
     if falta:
         print(nome + ': links sem destino:', falta)
@@ -471,8 +470,36 @@ def pacientes():
                     {'/carteira-d': '/carteira-doma'})
 
 
+def faq():
+    p = partes_home()
+    h = heroi('❓ PERGUNTAS FREQUENTES', 'Perguntas frequentes sobre a Clínica Doma',
+              'As dúvidas mais comuns sobre a Travessia, a Carteira Doma, os planos, o Indique Doma e o atendimento na clínica.',
+              '💬 FALAR COM A CLÍNICA', paginas_legais.ZAP,
+              '🪪 O Nível 1 da Travessia é gratuito para quem tem a Carteira Doma')
+    rolar = {'#faq-' + t: 'rolar:faq-' + t for t in ('sobre', 'travessia', 'carteira', 'planos', 'indique', 'clinica', 'dados')}
+    return composta('faq', 'Clínica Doma — Perguntas frequentes',
+                    [h] + paginas_legais.faq_blocos() + [p['APOIO EM CRISE']], rolar)
+
+
+def privacidade():
+    h = heroi('🔒 POLÍTICA DE PRIVACIDADE', 'Política de privacidade: como cuidamos dos seus dados',
+              'Aqui você vê, em linguagem simples, quais dados a Clínica Doma guarda, para que usa, com quem compartilha e como você pode ver, corrigir ou apagar tudo.',
+              '✉️ FALAR SOBRE OS MEUS DADOS', 'mailto:' + paginas_legais.EMAIL,
+              '🗓️ Última atualização: ' + paginas_legais.ATUALIZADO)
+    return composta('privacidade', 'Clínica Doma — Política de privacidade', [h] + paginas_legais.privacidade_blocos())
+
+
+def termos():
+    h = heroi('📜 TERMOS DE USO', 'Termos de uso da Clínica Doma',
+              'As regras para usar o site, a Carteira Doma, a Travessia, os planos, a loja e o Indique Doma, em linguagem simples.',
+              '💬 FALAR COM A CLÍNICA', paginas_legais.ZAP,
+              '🗓️ Última atualização: ' + paginas_legais.ATUALIZADO)
+    return composta('termos', 'Clínica Doma — Termos de uso', [h] + paginas_legais.termos_blocos())
+
+
 if __name__ == '__main__':
     home(); travessia(); bets(); planos(); carteira(); indique()
     monstrinhos(); polvo(); pacientes()
+    faq(); privacidade(); termos()
     for f in sorted(os.listdir(OUT)):
         print(f, os.path.getsize(os.path.join(OUT, f)))
