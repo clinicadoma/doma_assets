@@ -4,7 +4,7 @@ e Para pacientes da clínica.
 
 De onde vêm os textos:
 - perguntas, sinais no corpo e frases dos 9 monstrinhos: Roleta Interna do livro (resumidos);
-- Polvo: capítulos "Acolhendo o Polvo", "Superpoder", "Malabarista" e "Aliviando a Mochila" do livro;
+- Polvo: capítulos "Acolhendo o Polvo", "Superpoder", "Malabarista", "Aliviando a Mochila" e "A Ponte de Cristal" (para quem cuida) do livro;
 - o resto foi escrito a partir do plano e precisa da aprovação da Daniela.
 Filtro: material de autoconhecimento; nada de "diagnóstico", "cura" ou "tratar" para a plataforma;
 nunca desencorajar remédio; sintoma que persiste é assunto de médico.
@@ -199,22 +199,30 @@ def polvo_blocos():
       ''' % (titulo('Aliviando a mochila 🎒', 'Colocar em palavras ajuda a desatar os nós do peito. Complete as frases, no papel ou só em pensamento.'),
              GRADE, BOTAO_AZUL)
 
-    familia = '''<section style="background: #f0fdfa; border-radius: 18px; padding: clamp(24px, 4vw, 36px) clamp(18px, 4vw, 36px); display: flex; flex-direction: column; gap: 18px">
+    def fala(n, evitar, verdade, diga):
+        return ("""<div style="background: #ffffff; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; border-left: 5px solid #14b8a6">
+            <span style="flex: none; width: 36px; height: 36px; border-radius: 999px; background: #ccfbf1; color: #0f766e; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800">%d</span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><strong style="color: #0f2744; font-size: 17px">%s</strong><span style="font-size: 15px; color: #475569">%s</span><span style="font-size: 15px; font-weight: 700; color: #0f766e">%s</span></span>
+          </div>""") % (n, evitar, verdade, diga)
+
+    familia = """<section style="background: #f0fdfa; border-radius: 18px; padding: clamp(24px, 4vw, 36px) clamp(18px, 4vw, 36px); display: flex; flex-direction: column; gap: 16px">
         %s
-        <div style="%s">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          %s
           %s
           %s
           %s
           %s
         </div>
+        <p style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(17px, 2vw, 20px); font-style: italic; font-weight: 700; color: #0f766e">Cuidar de alguém é o ato mais puro de humanidade. Lembre-se de ser gentil consigo mesmo também.</p>
       </section>
 
-      ''' % (titulo('Para a família e para quem convive 💛', 'O Polvo de quem você ama não aparece em exame nenhum. Algumas atitudes deixam a mochila dele mais leve.'),
-             GRADE,
-             cartao('👂', 'Pergunte antes de aconselhar', '“O que te ajuda agora?” costuma valer mais do que qualquer dica.', '#14b8a6'),
-             cartao('🔋', 'Acredite no cansaço que você não vê', 'A fadiga é real, mesmo quando a pessoa parece bem por fora.', '#14b8a6'),
-             cartao('🤐', 'Segure os pitacos', 'Comentários sobre o corpo, a comida e os remédios pesam. O tratamento é assunto da pessoa com o médico dela.', '#14b8a6'),
-             cartao('🫶', 'Cuide de você também', 'Quem cuida também cansa, e também merece apoio.', '#14b8a6'))
+      """ % (titulo('Para a família e para quem cuida 💛', 'Quem cuida também carrega um peso invisível. Às vezes, na tentativa de ajudar, as palavras tropeçam. Cinco falas comuns, e o que dizer no lugar.'),
+             fala(1, '“Eu sei como você se sente.”', 'Ninguém sente a dor na pele do outro. O monstrinho dele tem um peso que só ele conhece.', 'Diga: “Não imagino seu cansaço, mas estou aqui.”'),
+             fala(2, 'O “fiscal médico”', 'Não decida o que a pessoa pode comer ou fazer. Ela já sente que perdeu o controle sobre o próprio corpo; não tire o controle das escolhas dela.', 'Pergunte: “Onde você precisa da minha força hoje?”'),
+             fala(3, 'A “exclusão protetora”', 'Não pare de convidar para passeios achando que é melhor a pessoa descansar. Ser esquecido dói mais do que a própria fadiga.', 'Diga: “Adoraríamos que você fosse. Se não der hoje, sem pressão.”'),
+             fala(4, 'A “positividade tóxica”', 'Não exija que a pessoa pense positivo o tempo todo. O medo e a raiva também são hóspedes que precisam ser ouvidos.', 'Diga: “É normal se sentir frustrado hoje. Estou aqui com você mesmo nos dias difíceis.”'),
+             fala(5, 'O “comparador de batalhas”', 'Não compare com quem “teve o mesmo e melhorou rápido”. O caminho é único para cada um.', 'Diga: “Cada passo que você dá no seu ritmo é uma grande vitória.”'))
     return [quem, desafios, superpoder, mochila, familia]
 
 
