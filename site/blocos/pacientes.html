@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Doma — Para pacientes da clínica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#f1f5f9;overflow:hidden}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#palco{position:absolute;top:0;left:0;width:1280px;--dw:1280px;transform-origin:0 0;visibility:hidden}
+a{color:#0b7cb8}a:hover{color:#0f2744}
+a[data-ir],a[data-rolar],a[target]{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+a[data-ir]:hover,a[data-rolar]:hover,a[target]:hover{filter:brightness(1.05)}
+button{cursor:pointer}
+/* vitrola */
+.vit-disco{animation:vit-gira 2.6s linear infinite;animation-play-state:paused}
+.vit-tocando .vit-disco{animation-play-state:running}
+.vit-braco{transition:transform .7s ease}
+.vit-tocando .vit-braco{transform:rotate(24deg) !important}
+@keyframes vit-gira{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.vit-barra{width:200px;height:6px;border-radius:999px;background:#eadfce;overflow:hidden}
+.vit-barra>i{display:block;height:100%;width:0;background:#c2410c;border-radius:999px}
+@media (prefers-reduced-motion:reduce){.vit-disco{animation:none}}
+</style>
+</head>
+<body>
+<div id="palco">
+<div style="width: 100%; min-height: 100%; background: #f1f5f9; padding: 20px 12px 28px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1f2937; font-size: 16px; line-height: 1.6">
+
+  <main id="topo" style="max-width: 820px; margin: 0 auto; background: #ffffff; border-top: 6px solid #1a9fd9; border-radius: 22px; box-shadow: 0 10px 30px rgba(15, 39, 68, 0.08); overflow: hidden">
+
+    <!-- LOGO -->
+    <header style="padding: 22px 20px 18px; display: flex; justify-content: center; align-items: center; gap: 12px; border-bottom: 2px dashed #e2e8f0">
+      <img src="https://static.wixstatic.com/media/253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp" width="320" height="384" alt="Logo Clínica Doma" style="width: 60px; height: auto; display: block">
+      <div style="display: flex; flex-direction: column; line-height: 1">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: #64748b">CONHEÇA A</span>
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 800; color: #0f2744">Clínica <span style="color: #b8860b">Doma</span></span>
+      </div>
+    </header>
+
+    <div style="padding: clamp(16px, calc(var(--dw) * 3 / 100), 28px); display: flex; flex-direction: column; gap: clamp(28px, calc(var(--dw) * 4 / 100), 40px)">
+
+      <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 40px) clamp(18px, calc(var(--dw) * 4 / 100), 40px); display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #e2e8f0">
+        <p style="margin: 0; padding: 6px 14px; border-radius: 999px; background: rgba(247, 215, 116, 0.16); border: 1px solid #f7d774; color: #f7d774; font-size: 13px; font-weight: 800; letter-spacing: 0.06em">🛋️ PARA PACIENTES DA CLÍNICA</p>
+        <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, calc(var(--dw) * 4.4 / 100), 46px); line-height: 1.12; font-weight: 800; color: #ffffff">Boas-vindas à Clínica Doma: o que saber antes da primeira sessão</h1>
+        <p style="margin: 0; max-width: 600px; font-size: clamp(16px, calc(var(--dw) * 2 / 100), 18px)">Esta página é para você que vai começar o atendimento. Em poucos minutos você entende o nosso jeito de trabalhar e já pode dar o primeiro passo em casa.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+          <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)">🪪 EMITIR MINHA CARTEIRA GRÁTIS</a>
+        </div>
+        <p style="margin: 0; font-size: 14px; color: #b9c9da">✨ A Carteira Doma é gratuita e abre o Nível 1 da Travessia</p>
+      </section>
+
+      <section style="background: #fffbeb; border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px) clamp(18px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; gap: 18px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">O nosso método em 1 minuto ⏱️</h2></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px">
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #f7d774"><span style="font-size: 28px; line-height: 1">👾</span><strong style="color: #0f2744; font-size: 17px">Monstrinho é um sentimento</strong><span style="font-size: 15px; color: #475569">É um jeito de olhar para o medo, a ansiedade ou a culpa de fora, sem rótulo. Você não é ansioso: existe um monstrinho da ansiedade agindo em você.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #f7d774"><span style="font-size: 28px; line-height: 1">🛡️</span><strong style="color: #0f2744; font-size: 17px">Ele quer te proteger</strong><span style="font-size: 15px; color: #475569">Todo monstrinho tem uma história. Entender do que ele tenta te proteger é o começo da conversa.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #f7d774"><span style="font-size: 28px; line-height: 1">🏅</span><strong style="color: #0f2744; font-size: 17px">Níveis são pequenas vitórias</strong><span style="font-size: 15px; color: #475569">Muita coisa muda e a sensação é de que “está tudo igual”. Os 12 níveis da Travessia deixam o seu caminho visível.</span></div>
+        </div>
+        <p style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(18px, calc(var(--dw) * 2.2 / 100), 22px); font-style: italic; font-weight: 700; color: #b45309">Domar não é controlar. É acolher.</p>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 18px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">O que esperar 🛋️</h2></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 12px">
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #0b7cb8"><span style="font-size: 28px; line-height: 1">🏡</span><strong style="color: #0f2744; font-size: 17px">Um espaço sem julgamentos</strong><span style="font-size: 15px; color: #475569">O atendimento é presencial, no Centro de Osasco/SP. Você não precisa chegar com tudo organizado: a gente começa de onde você está.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #0b7cb8"><span style="font-size: 28px; line-height: 1">🧰</span><strong style="color: #0f2744; font-size: 17px">Várias ferramentas</strong><span style="font-size: 15px; color: #475569">Psicanálise, hipnose clínica, arteterapia, jogos dos monstrinhos e escrita. A terapeuta escolhe com você o que faz sentido em cada momento.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #0b7cb8"><span style="font-size: 28px; line-height: 1">🗺️</span><strong style="color: #0f2744; font-size: 17px">A Travessia entre as sessões</strong><span style="font-size: 15px; color: #475569">Em casa, no seu ritmo, você faz os níveis do livro online. O que aparecer ali pode virar assunto na sessão.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #0b7cb8"><span style="font-size: 28px; line-height: 1">👑</span><strong style="color: #0f2744; font-size: 17px">No Plano Premium</strong><span style="font-size: 15px; color: #475569">As sessões acontecem a cada 15 dias e podem retomar o nível do mês com a terapeuta.</span></div>
+        </div>
+        <p style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 14px; line-height: 1.55; color: #334155">ℹ️ <strong>Importante:</strong> a Travessia e os conteúdos online da Clínica Doma são um material de autoconhecimento. Eles não são terapia e não substituem as sessões com um psicólogo, psicanalista ou médico.</p>
+      </section>
+
+      <section style="background: #f0f9ff; border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px) clamp(18px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; gap: 16px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">Como começar o Nível 1 🚀</h2><p style="margin: 0 auto; max-width: 640px; color: #475569">O Nível 1, O Meu Ano Inicia Agora, é grátis. Dá para fazer antes da primeira sessão.</p></div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid #e2e8f0">
+            <span style="flex: none; width: 40px; height: 40px; border-radius: 999px; background: #f7d774; color: #0f2744; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800">1</span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><strong style="color: #0f2744; font-size: 17px">Crie a sua conta</strong><span style="font-size: 15px; color: #475569">No botão Login, no alto do site. É a conta que guarda o seu progresso.</span></span>
+          </div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid #e2e8f0">
+            <span style="flex: none; width: 40px; height: 40px; border-radius: 999px; background: #f7d774; color: #0f2744; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800">2</span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><strong style="color: #0f2744; font-size: 17px">Emita a sua Carteira Doma</strong><span style="font-size: 15px; color: #475569">É gratuita, leva 2 minutinhos e sai na hora.</span></span>
+          </div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid #e2e8f0">
+            <span style="flex: none; width: 40px; height: 40px; border-radius: 999px; background: #f7d774; color: #0f2744; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800">3</span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><strong style="color: #0f2744; font-size: 17px">Faça o Nível 1</strong><span style="font-size: 15px; color: #475569">Termo de compromisso, Raio-X de Energia Vital, Mochila de Descarte, Ritual Final e Roleta de Boas-Vindas.</span></span>
+          </div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid #e2e8f0">
+            <span style="flex: none; width: 40px; height: 40px; border-radius: 999px; background: #f7d774; color: #0f2744; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800">4</span>
+            <span style="display: flex; flex-direction: column; gap: 4px"><strong style="color: #0f2744; font-size: 17px">Leve para a sessão</strong><span style="font-size: 15px; color: #475569">Anote o que mais mexeu com você. É um ótimo ponto de partida para a conversa.</span></span>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+          <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(11, 124, 184, 0.35)">🪪 EMITIR MINHA CARTEIRA GRÁTIS</a>
+          <a href="#" data-ir="/nivel-1" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #ffffff; color: #0f2744; border: 2px solid #0f2744; font-size: 16px; font-weight: 800; text-decoration: none">🚀 JÁ TENHO: IR PARA O NÍVEL 1</a>
+        </div>
+      </section>
+
+      <!-- TRAGA SEU MONSTRINHO -->
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+        <img src="https://static.wixstatic.com/media/253e81_2d86b45f7e1e480fa722f8c9d724ad24~mv2.jpg" width="667" height="702" alt="Sessão de terapia na Clínica Doma: paciente conversando com a terapeuta, com um monstrinho azul ao lado e depois relaxado na poltrona" style="width: 100%; max-width: 560px; height: auto; display: block; border-radius: 18px">
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #0f2744">Traga seu monstrinho para terapia 🛋️</h2>
+        <p style="margin: 0; max-width: 560px">Atendimento presencial no Centro de Osasco/SP, num espaço acolhedor e sem julgamentos.</p>
+        <a href="https://wa.me/5511963272059" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #15803d; color: #ffffff; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3)">💬 AGENDAR PELO WHATSAPP</a>
+      </section>
+
+      <!-- APOIO EM CRISE -->
+      <section style="background: #eff6ff; border-radius: 16px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start">
+        <span style="font-size: 26px; line-height: 1">💙</span>
+        <p style="margin: 0; font-size: 15px; color: #1e3a8a"><strong>Precisa de ajuda agora?</strong> Se você está em crise ou pensando em se machucar, ligue <strong>188</strong> (CVV): 24 horas e gratuito. Em emergência, <strong>192</strong> (SAMU).</p>
+      </section>
+
+      
+    </div>
+  </main>
+</div>
+</div>
+<script>
+(function(){
+  var palco=document.getElementById('palco');
+  // largura de desenho por faixa de tela (as mesmas faixas do Wix Studio)
+  function larguraDeDesenho(w){ return w>1000?1280:(w>750?820:390); }
+  var ultimo='';
+  function ajustar(){
+    var w=window.innerWidth,h=window.innerHeight; if(!w||!h) return;
+    var d=larguraDeDesenho(w);
+    palco.style.width=d+'px'; palco.style.setProperty('--dw',d+'px');
+    var H=palco.offsetHeight; if(!H) return;
+    var zl=w/d, z=Math.min(zl,h/H);
+    var cabe=true;
+    if(z<zl*0.9){ z=zl*0.9; cabe=false; }           // quadro curto demais: não encolhe além de 10%
+    document.documentElement.style.overflowY=cabe?'hidden':'auto';
+    document.body.style.overflowY=cabe?'hidden':'auto';
+    var x=Math.max(0,(w-d*z)/2);
+    palco.style.transform='translate('+x+'px,0) scale('+z+')';
+    palco.style.visibility='visible';
+    var chave=[d,H,w,h].join(',');
+    if(chave!==ultimo){ ultimo=chave; try{ parent.postMessage({acao:'domaTamanho',desenho:d,altura:H,quadroL:w,quadroA:h,proporcao:+(H/d).toFixed(4)},'*'); }catch(e){} }
+  }
+  var t=null; function agendar(){ if(t) cancelAnimationFrame(t); t=requestAnimationFrame(ajustar); }
+  window.addEventListener('resize',agendar);
+  window.addEventListener('load',agendar);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(agendar);
+  if(window.ResizeObserver) new ResizeObserver(agendar).observe(palco);
+  ajustar();
+
+  // links internos: quem navega (ou rola a tela) é a página do Wix
+  function rolarPara(id){
+    var alvo=document.getElementById(id); if(!alvo) return;
+    var topo=alvo.getBoundingClientRect().top;
+    if(!window.IntersectionObserver){ return; }
+    var io=new IntersectionObserver(function(es){
+      io.disconnect();
+      var vis=(es[0]&&es[0].intersectionRect)?es[0].intersectionRect.top:0;   // primeira linha do bloco que está visível na tela
+      try{ parent.postMessage({acao:'rolar',dy:Math.round(topo-vis-70)},'*'); }catch(e){}
+    });
+    io.observe(palco);
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
+    ev.preventDefault();
+    if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir'),voltar:a.getAttribute('data-voltar')||''},'*'); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

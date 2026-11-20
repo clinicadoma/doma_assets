@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Doma — O Monstrinho Polvo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#f1f5f9;overflow:hidden}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#palco{position:absolute;top:0;left:0;width:1280px;--dw:1280px;transform-origin:0 0;visibility:hidden}
+a{color:#0b7cb8}a:hover{color:#0f2744}
+a[data-ir],a[data-rolar],a[target]{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+a[data-ir]:hover,a[data-rolar]:hover,a[target]:hover{filter:brightness(1.05)}
+button{cursor:pointer}
+/* vitrola */
+.vit-disco{animation:vit-gira 2.6s linear infinite;animation-play-state:paused}
+.vit-tocando .vit-disco{animation-play-state:running}
+.vit-braco{transition:transform .7s ease}
+.vit-tocando .vit-braco{transform:rotate(24deg) !important}
+@keyframes vit-gira{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.vit-barra{width:200px;height:6px;border-radius:999px;background:#eadfce;overflow:hidden}
+.vit-barra>i{display:block;height:100%;width:0;background:#c2410c;border-radius:999px}
+@media (prefers-reduced-motion:reduce){.vit-disco{animation:none}}
+</style>
+</head>
+<body>
+<div id="palco">
+<div style="width: 100%; min-height: 100%; background: #f1f5f9; padding: 20px 12px 28px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1f2937; font-size: 16px; line-height: 1.6">
+
+  <main id="topo" style="max-width: 820px; margin: 0 auto; background: #ffffff; border-top: 6px solid #1a9fd9; border-radius: 22px; box-shadow: 0 10px 30px rgba(15, 39, 68, 0.08); overflow: hidden">
+
+    <!-- LOGO -->
+    <header style="padding: 22px 20px 18px; display: flex; justify-content: center; align-items: center; gap: 12px; border-bottom: 2px dashed #e2e8f0">
+      <img src="https://static.wixstatic.com/media/253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp" width="320" height="384" alt="Logo Clínica Doma" style="width: 60px; height: auto; display: block">
+      <div style="display: flex; flex-direction: column; line-height: 1">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: #64748b">CONHEÇA A</span>
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 800; color: #0f2744">Clínica <span style="color: #b8860b">Doma</span></span>
+      </div>
+    </header>
+
+    <div style="padding: clamp(16px, calc(var(--dw) * 3 / 100), 28px); display: flex; flex-direction: column; gap: clamp(28px, calc(var(--dw) * 4 / 100), 40px)">
+
+      <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 40px) clamp(18px, calc(var(--dw) * 4 / 100), 40px); display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #e2e8f0">
+        <p style="margin: 0; padding: 6px 14px; border-radius: 999px; background: rgba(247, 215, 116, 0.16); border: 1px solid #f7d774; color: #f7d774; font-size: 13px; font-weight: 800; letter-spacing: 0.06em">🐙 O MONSTRINHO POLVO</p>
+        <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, calc(var(--dw) * 4.4 / 100), 46px); line-height: 1.12; font-weight: 800; color: #ffffff">O Monstrinho Polvo: para quem convive com uma doença crônica</h1>
+        <p style="margin: 0; max-width: 600px; font-size: clamp(16px, calc(var(--dw) * 2 / 100), 18px)">Remédios, horários, exames e aquele cansaço que só você sente. Esta página é para você que carrega esse malabarismo todos os dias, e para a sua família.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+          <a href="#" data-ir="/a-travessia" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)">🗺️ CONHECER A TRAVESSIA</a>
+        </div>
+        <p style="margin: 0; font-size: 14px; color: #b9c9da">🐙 O Polvo aparece no Nível 3 da Travessia: Acolher, Não Domar</p>
+      </section>
+
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+        <img src="https://static.wixstatic.com/media/253e81_5ef317b6eca6490991a21f40eb217cf9~mv2.jpg" width="711" height="406" alt="Na Clínica dos Monstros, um polvo roxo sai de uma mochila fazendo malabarismo com relógio, calendário, remédios e consultas, ao lado de uma criança e de um monstrinho azul" style="width: 100%; max-width: 560px; height: auto; display: block; border-radius: 18px; box-shadow: 0 10px 24px rgba(15, 39, 68, 0.12)">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">Quem é o Polvo? 🐙</h2><p style="margin: 0 auto; max-width: 640px; color: #475569">Às vezes a gente guarda na bagagem um Polvo muito especial: silencioso, invisível, mas que pede um pouquinho de atenção. Você já sentiu ele por aí?</p></div>
+        <p style="margin: 0; max-width: 640px; padding: 18px 20px; border-radius: 16px; background: #f5f3ff; border-left: 5px solid #8b5cf6; text-align: left; font-size: 16px; color: #334155">“Sei bem como é cansativo fazer malabarismo com horários de remédios, exames e aquela fadiga que só você sente. Não precisa se desgastar tentando me explicar; eu estou aqui para caminhar junto com você.”<br><strong style="color: #6d28d9">Daniela Pinheiros, psicanalista</strong></p>
+      </section>
+
+      <section style="background: #f5f3ff; border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px) clamp(18px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; gap: 18px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">Os desafios do malabarista 🤹</h2><p style="margin: 0 auto; max-width: 640px; color: #475569">Quatro pesos que quase ninguém vê, e um jeito mais gentil de olhar para cada um.</p></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 12px">
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #8b5cf6"><span style="font-size: 28px; line-height: 1">⏱️</span><strong style="color: #0f2744; font-size: 17px">O relógio que não para</strong><span style="font-size: 15px; color: #475569">A exaustão de ter a mente sempre alerta aos horários e cuidados. Essa vigilância também é a prova de que você cuida muito bem de si.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #8b5cf6"><span style="font-size: 28px; line-height: 1">🛡️</span><strong style="color: #0f2744; font-size: 17px">O escudo contra pitacos</strong><span style="font-size: 15px; color: #475569">O cansaço de ter que justificar o seu corpo o tempo todo. Dá para aprender a colocar limites com elegância.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #8b5cf6"><span style="font-size: 28px; line-height: 1">🔍</span><strong style="color: #0f2744; font-size: 17px">O espelho mais gentil</strong><span style="font-size: 15px; color: #475569">A vergonha de se sentir “marcado”. O convite é trocar a autocrítica pela admiração por um corpo que luta por você.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #8b5cf6"><span style="font-size: 28px; line-height: 1">📦</span><strong style="color: #0f2744; font-size: 17px">Recriando a espontaneidade</strong><span style="font-size: 15px; color: #475569">A sensação de sonhos roubados. A vida não parou: ela pediu um novo roteiro.</span></div>
+        </div>
+      </section>
+
+      <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px) clamp(18px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; color: #e2e8f0">
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #f7d774">🧭 O superpoder da autonomia</h2>
+        <p style="margin: 0; max-width: 620px; font-size: 17px">A medicina entrega o mapa. Mas quem guia a Travessia é você. Cuidar da sua mente e seguir o tratamento são os maiores gestos de amor que você pode se dar hoje.</p>
+        <p style="margin: 0; max-width: 620px">O Polvo não define quem você é. Ele é aquele cansaço que às vezes surge. Tudo bem não precisar sorrir o tempo todo para poupar os outros.</p>
+      </section>
+
+      <p style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 14px; line-height: 1.55; color: #334155">ℹ️ <strong>Importante:</strong> esta página e a Travessia são material de autoconhecimento. Elas não substituem o acompanhamento do seu médico nem o tratamento que ele indicou. Nunca mude ou interrompa um remédio por conta própria: converse antes com quem cuida de você.</p>
+
+      <section style="display: flex; flex-direction: column; gap: 16px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">Aliviando a mochila 🎒</h2><p style="margin: 0 auto; max-width: 640px; color: #475569">Colocar em palavras ajuda a desatar os nós do peito. Complete as frases, no papel ou só em pensamento.</p></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 12px">
+          <div style="background: #fffbeb; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; color: #0f2744">1. O que o meu corpo mais pede hoje é…</div>
+          <div style="background: #fffbeb; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; color: #0f2744">2. O comentário que não vou absorver mais é…</div>
+          <div style="background: #fffbeb; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; color: #0f2744">3. O sonho que eu vou adaptar (sem desistir) é…</div>
+          <div style="background: #fffbeb; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; color: #0f2744">4. O que eu mais preciso ouvir de mim hoje é…</div>
+        </div>
+        <p style="margin: 0; text-align: center; color: #475569">Esse exercício faz parte do Nível 3 da Travessia, <strong>Acolher, Não Domar</strong>, onde o Polvo aparece.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+          <a href="#" data-ir="/a-travessia" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(11, 124, 184, 0.35)">🗺️ CONHECER A TRAVESSIA</a>
+        </div>
+      </section>
+
+      <section style="background: #f0fdfa; border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px) clamp(18px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; gap: 18px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 8px"><h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #0f2744">Para a família e para quem convive 💛</h2><p style="margin: 0 auto; max-width: 640px; color: #475569">O Polvo de quem você ama não aparece em exame nenhum. Algumas atitudes deixam a mochila dele mais leve.</p></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 12px">
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #14b8a6"><span style="font-size: 28px; line-height: 1">👂</span><strong style="color: #0f2744; font-size: 17px">Pergunte antes de aconselhar</strong><span style="font-size: 15px; color: #475569">“O que te ajuda agora?” costuma valer mais do que qualquer dica.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #14b8a6"><span style="font-size: 28px; line-height: 1">🔋</span><strong style="color: #0f2744; font-size: 17px">Acredite no cansaço que você não vê</strong><span style="font-size: 15px; color: #475569">A fadiga é real, mesmo quando a pessoa parece bem por fora.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #14b8a6"><span style="font-size: 28px; line-height: 1">🤐</span><strong style="color: #0f2744; font-size: 17px">Segure os pitacos</strong><span style="font-size: 15px; color: #475569">Comentários sobre o corpo, a comida e os remédios pesam. O tratamento é assunto da pessoa com o médico dela.</span></div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-left: 5px solid #14b8a6"><span style="font-size: 28px; line-height: 1">🫶</span><strong style="color: #0f2744; font-size: 17px">Cuide de você também</strong><span style="font-size: 15px; color: #475569">Quem cuida também cansa, e também merece apoio.</span></div>
+        </div>
+      </section>
+
+      <!-- TRAGA SEU MONSTRINHO -->
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+        <img src="https://static.wixstatic.com/media/253e81_2d86b45f7e1e480fa722f8c9d724ad24~mv2.jpg" width="667" height="702" alt="Sessão de terapia na Clínica Doma: paciente conversando com a terapeuta, com um monstrinho azul ao lado e depois relaxado na poltrona" style="width: 100%; max-width: 560px; height: auto; display: block; border-radius: 18px">
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #0f2744">Traga seu monstrinho para terapia 🛋️</h2>
+        <p style="margin: 0; max-width: 560px">Atendimento presencial no Centro de Osasco/SP, num espaço acolhedor e sem julgamentos.</p>
+        <a href="https://wa.me/5511963272059" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #15803d; color: #ffffff; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3)">💬 AGENDAR PELO WHATSAPP</a>
+      </section>
+
+      <!-- APOIO EM CRISE -->
+      <section style="background: #eff6ff; border-radius: 16px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start">
+        <span style="font-size: 26px; line-height: 1">💙</span>
+        <p style="margin: 0; font-size: 15px; color: #1e3a8a"><strong>Precisa de ajuda agora?</strong> Se você está em crise ou pensando em se machucar, ligue <strong>188</strong> (CVV): 24 horas e gratuito. Em emergência, <strong>192</strong> (SAMU).</p>
+      </section>
+
+      <!-- INSTAGRAM -->
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding-bottom: 8px">
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 800; color: #0f2744">Siga a gente no Instagram! 📸</h2>
+        <a href="https://www.instagram.com/clinicadoma.oficial" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: linear-gradient(45deg, #d6249f 0%, #c2185b 50%, #7b1fa2 100%); color: #ffffff; font-weight: 800; text-decoration: none">@clinicadoma.oficial</a>
+      </section>
+
+      
+    </div>
+  </main>
+</div>
+</div>
+<script>
+(function(){
+  var palco=document.getElementById('palco');
+  // largura de desenho por faixa de tela (as mesmas faixas do Wix Studio)
+  function larguraDeDesenho(w){ return w>1000?1280:(w>750?820:390); }
+  var ultimo='';
+  function ajustar(){
+    var w=window.innerWidth,h=window.innerHeight; if(!w||!h) return;
+    var d=larguraDeDesenho(w);
+    palco.style.width=d+'px'; palco.style.setProperty('--dw',d+'px');
+    var H=palco.offsetHeight; if(!H) return;
+    var zl=w/d, z=Math.min(zl,h/H);
+    var cabe=true;
+    if(z<zl*0.9){ z=zl*0.9; cabe=false; }           // quadro curto demais: não encolhe além de 10%
+    document.documentElement.style.overflowY=cabe?'hidden':'auto';
+    document.body.style.overflowY=cabe?'hidden':'auto';
+    var x=Math.max(0,(w-d*z)/2);
+    palco.style.transform='translate('+x+'px,0) scale('+z+')';
+    palco.style.visibility='visible';
+    var chave=[d,H,w,h].join(',');
+    if(chave!==ultimo){ ultimo=chave; try{ parent.postMessage({acao:'domaTamanho',desenho:d,altura:H,quadroL:w,quadroA:h,proporcao:+(H/d).toFixed(4)},'*'); }catch(e){} }
+  }
+  var t=null; function agendar(){ if(t) cancelAnimationFrame(t); t=requestAnimationFrame(ajustar); }
+  window.addEventListener('resize',agendar);
+  window.addEventListener('load',agendar);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(agendar);
+  if(window.ResizeObserver) new ResizeObserver(agendar).observe(palco);
+  ajustar();
+
+  // links internos: quem navega (ou rola a tela) é a página do Wix
+  function rolarPara(id){
+    var alvo=document.getElementById(id); if(!alvo) return;
+    var topo=alvo.getBoundingClientRect().top;
+    if(!window.IntersectionObserver){ return; }
+    var io=new IntersectionObserver(function(es){
+      io.disconnect();
+      var vis=(es[0]&&es[0].intersectionRect)?es[0].intersectionRect.top:0;   // primeira linha do bloco que está visível na tela
+      try{ parent.postMessage({acao:'rolar',dy:Math.round(topo-vis-70)},'*'); }catch(e){}
+    });
+    io.observe(palco);
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
+    ev.preventDefault();
+    if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir'),voltar:a.getAttribute('data-voltar')||''},'*'); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

@@ -25,6 +25,7 @@ IMGS = {
 AUDIO_VITROLA = 'https://static.wixstatic.com/mp3/253e81_54b19efb74c5463e8ce371a49cd82da5.mp3'
 
 import plano  # textos e blocos do plano de melhorias (13/11)
+import paginas_novas  # páginas novas do passo 3 do plano
 
 # Para onde cada link do protótipo leva no site novo
 LINKS = {
@@ -47,6 +48,9 @@ LINKS = {
     '/carteira-doma': '/carteira-doma',
     '/livro-a-travessia': '/livro-a-travessia',
     '/nivel-1': '/nivel-1',
+    '/conheca-os-monstrinhos': '/conheca-os-monstrinhos',
+    '/monstrinho-polvo': '/monstrinho-polvo',
+    '/para-pacientes': '/para-pacientes',
 }
 
 CSS_BASE = r'''
@@ -436,7 +440,39 @@ def bets():
     return montar('bets', 'Clínica Doma — Vício em apostas', c)
 
 
+def monstrinhos():
+    p = partes_home()
+    h = heroi('👾 CONHEÇA OS MONSTRINHOS', 'Conheça os 12 monstrinhos da Caverna',
+              'Medo, ansiedade, culpa, raiva: cada sentimento difícil tem um monstrinho. Aqui você conhece os doze, com a pergunta que cada um faz e os sinais que ele costuma deixar no corpo.',
+              '🚀 COMEÇAR MEU NÍVEL 1 GRÁTIS', '/a-travessia',
+              '🪪 O Nível 1 da Travessia é gratuito para quem tem a Carteira Doma')
+    return composta('monstrinhos', 'Clínica Doma — Conheça os Monstrinhos',
+                    [h] + paginas_novas.monstrinhos_blocos() + [p['APOIO EM CRISE'], p['INSTAGRAM']])
+
+
+def polvo():
+    p = partes_home()
+    h = heroi('🐙 O MONSTRINHO POLVO', 'O Monstrinho Polvo: para quem convive com uma doença crônica',
+              'Remédios, horários, exames e aquele cansaço que só você sente. Esta página é para você que carrega esse malabarismo todos os dias, e para a sua família.',
+              '🗺️ CONHECER A TRAVESSIA', '/a-travessia',
+              '🐙 O Polvo aparece no Nível 3 da Travessia: Acolher, Não Domar')
+    return composta('polvo', 'Clínica Doma — O Monstrinho Polvo',
+                    [h] + paginas_novas.polvo_blocos() + [p['TRAGA SEU MONSTRINHO'], p['APOIO EM CRISE'], p['INSTAGRAM']])
+
+
+def pacientes():
+    p = partes_home()
+    h = heroi('🛋️ PARA PACIENTES DA CLÍNICA', 'Boas-vindas à Clínica Doma: o que saber antes da primeira sessão',
+              'Esta página é para você que vai começar o atendimento. Em poucos minutos você entende o nosso jeito de trabalhar e já pode dar o primeiro passo em casa.',
+              '🪪 EMITIR MINHA CARTEIRA GRÁTIS', '/carteira-doma',
+              '✨ A Carteira Doma é gratuita e abre o Nível 1 da Travessia')
+    return composta('pacientes', 'Clínica Doma — Para pacientes da clínica',
+                    [h] + paginas_novas.pacientes_blocos() + [p['TRAGA SEU MONSTRINHO'], p['APOIO EM CRISE']],
+                    {'/carteira-d': '/carteira-doma'})
+
+
 if __name__ == '__main__':
     home(); travessia(); bets(); planos(); carteira(); indique()
+    monstrinhos(); polvo(); pacientes()
     for f in sorted(os.listdir(OUT)):
         print(f, os.path.getsize(os.path.join(OUT, f)))

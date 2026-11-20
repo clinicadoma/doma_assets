@@ -36,6 +36,9 @@ DOMADOR_HTML = '''<!-- O QUE É UM DOMADOR -->
           %s
           %s
         </div>
+        <div style="display: flex; justify-content: center">
+          <a href="/conheca-os-monstrinhos" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border-radius: 999px; background: #0f2744; color: #ffffff; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 18px rgba(15, 39, 68, 0.25)">👾 CONHEÇA OS MONSTRINHOS</a>
+        </div>
       </section>
 
       ''' % (
@@ -149,7 +152,7 @@ MAPA_HTML = '''<!-- A TRILHA DOS 12 NÍVEIS -->
             <h3 style="margin: 0; font-size: 18px; color: #0f2744">🕯️ Capítulo 2 · A Caverna dos Monstros · Níveis 5 a 8</h3>
             <span style="padding: 3px 10px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800">EM CONSTRUÇÃO</span>
           </div>
-          <p style="margin: 0; font-size: 15px; color: #475569">A elaboração: o mergulho em cada um dos seus monstrinhos, três por nível.</p>
+          <p style="margin: 0; font-size: 15px; color: #475569">A elaboração: o mergulho em cada um dos seus monstrinhos, três por nível. <a href="/conheca-os-monstrinhos" style="font-weight: 700; color: #0b7cb8">Conheça os monstrinhos da Caverna →</a></p>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%%), 1fr)); gap: 10px">
             %(n5)s
             %(n6)s
