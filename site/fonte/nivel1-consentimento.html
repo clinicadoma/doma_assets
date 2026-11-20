@@ -5,23 +5,27 @@
                        { origem:'wix-travessia', tipo:'pedir-consentimento' }
        HTML -> página: { origem:'travessia', tipo:'consentimento', aceito:true|false } -->
 <style>
-#dc-fundo{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:8px;background:rgba(15,39,68,.94);box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif}
-#dc-fundo.dc-aberto{display:flex}
-#dc-caixa{background:#ffffff;color:#334155;border-radius:18px;width:100%;max-width:560px;max-height:100%;overflow:auto;padding:18px 18px 14px;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.45);text-align:left;font-size:15px;line-height:1.5}
-#dc-caixa *{box-sizing:border-box}
-#dc-titulo{margin:0 0 10px;font-family:'Playfair Display',Georgia,serif;font-size:24px;line-height:1.2;font-weight:800;color:#0f2744;text-align:center}
-#dc-caixa p{margin:0 0 10px}
-#dc-caixa ul{margin:0 0 12px;padding-left:20px}
-#dc-caixa li{margin:0 0 3px}
-#dc-rotulo{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#fffbeb;border:2px solid #f7d774;color:#0f2744;font-weight:700;cursor:pointer}
-#dc-aceite{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:#0b7cb8;cursor:pointer}
-#dc-botoes{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
-#dc-botoes button{flex:1 1 150px;min-height:46px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
-#dc-sim{flex-basis:270px !important;background:#0b7cb8;color:#ffffff;border:2px solid #0b7cb8}
-#dc-sim:disabled{background:#cbd5e1;border-color:#cbd5e1;color:#64748b;cursor:not-allowed}
-#dc-nao{background:#ffffff;color:#0f2744;border:2px solid #0f2744}
-#dc-rodape{margin:0 !important;font-size:12.5px;line-height:1.45;color:#64748b}
-#dc-link{color:#0b7cb8;font-weight:700}
+/* tudo com !important: o jogo tem regras gerais para p, h2, li e button que vazavam para esta tela */
+#dc-fundo{position:fixed !important;top:0;left:0;right:0;bottom:0;z-index:2147483000;display:none;align-items:center;justify-content:center;margin:0 !important;padding:8px !important;background:rgba(15,39,68,.94) !important;box-sizing:border-box}
+#dc-fundo.dc-aberto{display:flex !important}
+#dc-caixa{background:#ffffff !important;border-radius:18px;width:100%;max-width:560px;max-height:100%;overflow:auto;margin:0 !important;padding:18px 18px 14px !important;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.45);text-align:left !important}
+#dc-caixa *{box-sizing:border-box !important;text-shadow:none !important;letter-spacing:normal !important;text-transform:none !important;animation:none !important;float:none !important}
+#dc-caixa,#dc-caixa p,#dc-caixa li,#dc-caixa span,#dc-caixa a,#dc-caixa label,#dc-caixa button{font-family:Inter,Arial,Helvetica,sans-serif !important}
+#dc-titulo{margin:0 0 10px !important;padding:0 !important;font-family:'Playfair Display',Georgia,serif !important;font-size:24px !important;line-height:1.2 !important;font-weight:800 !important;color:#0f2744 !important;text-align:center !important;background:none !important;border:0 !important}
+#dc-caixa p,#dc-caixa li{font-size:15px !important;line-height:1.5 !important;font-weight:400 !important;color:#334155 !important;text-align:left !important;background:none !important;border:0 !important}
+#dc-caixa p{margin:0 0 10px !important;padding:0 !important}
+#dc-caixa ul{margin:0 0 12px !important;padding:0 0 0 20px !important;list-style:disc outside !important}
+#dc-caixa li{margin:0 0 3px !important;padding:0 !important;display:list-item !important}
+#dc-rotulo{display:flex !important;gap:10px;align-items:flex-start;margin:0 0 14px !important;padding:12px 14px !important;border-radius:12px;background:#fffbeb !important;border:2px solid #f7d774 !important;cursor:pointer;width:auto !important}
+#dc-rotulo span{font-size:15px !important;line-height:1.45 !important;font-weight:700 !important;color:#0f2744 !important}
+#dc-aceite{flex:none;width:22px !important;height:22px !important;margin:1px 0 0 !important;accent-color:#0b7cb8;cursor:pointer;appearance:auto !important;-webkit-appearance:checkbox !important;opacity:1 !important;position:static !important}
+#dc-botoes{display:flex !important;flex-wrap:wrap;gap:10px;margin:0 0 12px !important;padding:0 !important}
+#dc-botoes button{flex:1 1 150px;width:auto !important;min-height:46px;margin:0 !important;padding:0 16px !important;border-radius:999px !important;font-size:14px !important;line-height:1.2 !important;font-weight:800 !important;cursor:pointer;box-shadow:none !important;transform:none !important}
+#dc-sim{flex-basis:270px !important;background:#0b7cb8 !important;color:#ffffff !important;border:2px solid #0b7cb8 !important}
+#dc-sim:disabled{background:#cbd5e1 !important;border-color:#cbd5e1 !important;color:#64748b !important;cursor:not-allowed}
+#dc-nao{background:#ffffff !important;color:#0f2744 !important;border:2px solid #0f2744 !important}
+#dc-caixa #dc-rodape{margin:0 !important;font-size:12.5px !important;line-height:1.45 !important;color:#64748b !important}
+#dc-link{color:#0b7cb8 !important;font-size:12.5px !important;font-weight:700 !important;text-decoration:underline !important}
 </style>
 <div id="dc-fundo" role="dialog" aria-modal="true" aria-labelledby="dc-titulo">
   <div id="dc-caixa">
