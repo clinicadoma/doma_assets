@@ -12,8 +12,8 @@ html,body{margin:0;padding:0;background:#f1f5f9;overflow:hidden}
 body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 #palco{position:absolute;top:0;left:0;width:1280px;--dw:1280px;transform-origin:0 0;visibility:hidden}
 a{color:#0b7cb8}a:hover{color:#0f2744}
-a[data-ir],a[target]{cursor:pointer;transition:transform .15s ease,filter .15s ease}
-a[data-ir]:hover,a[target]:hover{filter:brightness(1.05)}
+a[data-ir],a[data-rolar],a[target]{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+a[data-ir]:hover,a[data-rolar]:hover,a[target]:hover{filter:brightness(1.05)}
 button{cursor:pointer}
 /* vitrola */
 .vit-disco{animation:vit-gira 2.6s linear infinite;animation-play-state:paused}
@@ -62,7 +62,7 @@ button{cursor:pointer}
           <img src="https://static.wixstatic.com/media/253e81_f48cb3e60df44b0082ef8062fc1ce48d~mv2.jpg" width="413" height="321" alt="Modelo da Carteira Oficial Doma com espaço para foto, nome e registro" style="width: 100%; max-width: 300px; height: auto; display: block; border-radius: 14px; transform: rotate(-2deg); box-shadow: 0 10px 24px rgba(15, 39, 68, 0.18)">
         </div>
         <p style="margin: 0; padding: 10px 16px; border-radius: 12px; background: #ecfdf5; border: 1px dashed #34d399; color: #065f46; font-size: 15px; font-weight: 600">✨ Leva 2 minutinhos e sai na hora, de graça!</p>
-        <a href="#" data-ir="/carteira-d" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; text-decoration: none; box-shadow: 0 8px 20px rgba(11, 124, 184, 0.35)">QUERO EMITIR MINHA CARTEIRA GRÁTIS 🚀</a>
+        <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-size: 16px; font-weight: 800; letter-spacing: 0.02em; text-decoration: none; box-shadow: 0 8px 20px rgba(11, 124, 184, 0.35)">QUERO EMITIR MINHA CARTEIRA GRÁTIS 🚀</a>
         <p style="margin: 0; font-size: 13px; color: #64748b">🔒 Seus dados ficam protegidos · Política de privacidade</p>
       </section>
 
@@ -75,7 +75,7 @@ button{cursor:pointer}
             <img src="https://static.wixstatic.com/media/253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp" alt="" width="320" height="384" style="width: 42px; height: 42px; object-fit: contain; border-radius: 999px; background: #ffffff; padding: 3px">
           </div>
           <div style="position: absolute; right: 18px; top: 16px; width: 18px; height: 18px; border-radius: 999px; background: #374151"></div>
-          <div class="vit-braco" style="position: absolute; right: 24px; top: 30px; width: 6px; height: 72px; border-radius: 4px; background: #d1d5db; transform: rotate(-22deg); transform-origin: top center"></div>
+          <div class="vit-braco" style="position: absolute; right: 24px; top: 30px; width: 6px; height: 72px; border-radius: 4px; background: #d1d5db; transform: rotate(-10deg); transform-origin: top center"></div>
         </div>
         <div class="vit-barra" aria-hidden="true"><i id="vit-progresso"></i></div>
         <button id="vit-botao" type="button" aria-pressed="false" style="min-height: 44px; padding: 0 24px; border-radius: 999px; border: none; background: #c2410c; color: #ffffff; font: inherit; font-size: 15px; font-weight: 700">▶ Tocar</button>
@@ -203,6 +203,7 @@ button{cursor:pointer}
         <p style="margin: 0; padding: 10px 14px; border-radius: 10px; background: #f0fdf4">🤝 Indique amigos e ganhe créditos ou dinheiro a cada renovação.</p>
         <p style="margin: 0; padding: 10px 14px; border-radius: 10px; background: #f0fdf4">🛍️ Explore uma loja cheia de produtos personalizados.</p>
         <p style="margin: 8px 0 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-style: italic; font-weight: 700; color: #0f2744">Afinal, nem todo monstro que assusta vem de fora.</p>
+        <div style="display: flex; justify-content: center; margin-top: 6px"><a href="#" data-ir="/planos" style="display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border-radius: 999px; background: #0f2744; color: #ffffff; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 18px rgba(15, 39, 68, 0.25)">🌱 CONHEÇA OS PLANOS</a></div>
       </section>
 
       <!-- MÉTODO + LIVRO -->
@@ -320,10 +321,22 @@ button{cursor:pointer}
   if(window.ResizeObserver) new ResizeObserver(agendar).observe(palco);
   ajustar();
 
-  // links internos: quem navega é a página do Wix
+  // links internos: quem navega (ou rola a tela) é a página do Wix
+  function rolarPara(id){
+    var alvo=document.getElementById(id); if(!alvo) return;
+    var topo=alvo.getBoundingClientRect().top;
+    if(!window.IntersectionObserver){ return; }
+    var io=new IntersectionObserver(function(es){
+      io.disconnect();
+      var vis=(es[0]&&es[0].intersectionRect)?es[0].intersectionRect.top:0;   // primeira linha do bloco que está visível na tela
+      try{ parent.postMessage({acao:'rolar',dy:Math.round(topo-vis-70)},'*'); }catch(e){}
+    });
+    io.observe(palco);
+  }
   document.addEventListener('click',function(ev){
-    var a=ev.target.closest?ev.target.closest('a[data-ir]'):null; if(!a) return;
+    var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
     ev.preventDefault();
+    if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
     try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
   });
 })();

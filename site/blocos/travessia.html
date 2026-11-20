@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Doma — A Travessia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#f1f5f9;overflow:hidden}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#palco{position:absolute;top:0;left:0;width:1280px;--dw:1280px;transform-origin:0 0;visibility:hidden}
+a{color:#0b7cb8}a:hover{color:#0f2744}
+a[data-ir],a[data-rolar],a[target]{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+a[data-ir]:hover,a[data-rolar]:hover,a[target]:hover{filter:brightness(1.05)}
+button{cursor:pointer}
+/* vitrola */
+.vit-disco{animation:vit-gira 2.6s linear infinite;animation-play-state:paused}
+.vit-tocando .vit-disco{animation-play-state:running}
+.vit-braco{transition:transform .7s ease}
+.vit-tocando .vit-braco{transform:rotate(24deg) !important}
+@keyframes vit-gira{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.vit-barra{width:200px;height:6px;border-radius:999px;background:#eadfce;overflow:hidden}
+.vit-barra>i{display:block;height:100%;width:0;background:#c2410c;border-radius:999px}
+@media (prefers-reduced-motion:reduce){.vit-disco{animation:none}}
+</style>
+</head>
+<body>
+<div id="palco">
+<div style="width: 100%; min-height: 100%; background: #f1f5f9; padding: 20px 12px 28px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1f2937; font-size: 16px; line-height: 1.6">
+
+  <main id="topo" style="max-width: 820px; margin: 0 auto; background: #ffffff; border-top: 6px solid #1a9fd9; border-radius: 22px; box-shadow: 0 10px 30px rgba(15, 39, 68, 0.08); overflow: hidden">
+
+    <!-- LOGO -->
+    <header style="padding: 22px 20px 18px; display: flex; justify-content: center; align-items: center; gap: 12px; border-bottom: 2px dashed #e2e8f0">
+      <img src="https://static.wixstatic.com/media/253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp" width="320" height="384" alt="Logo Clínica Doma" style="width: 60px; height: auto; display: block">
+      <div style="display: flex; flex-direction: column; line-height: 1">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: #64748b">CONHEÇA A</span>
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 800; color: #0f2744">Clínica <span style="color: #b8860b">Doma</span></span>
+      </div>
+    </header>
+
+    <div style="padding: clamp(16px, calc(var(--dw) * 3 / 100), 28px); display: flex; flex-direction: column; gap: clamp(28px, calc(var(--dw) * 4 / 100), 40px)">
+
+      <!-- ABERTURA -->
+      <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 40px) clamp(18px, calc(var(--dw) * 4 / 100), 40px); display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #e2e8f0">
+        <p style="margin: 0; padding: 6px 14px; border-radius: 999px; background: rgba(247, 215, 116, 0.16); border: 1px solid #f7d774; color: #f7d774; font-size: 13px; font-weight: 800; letter-spacing: 0.06em">📖 INTRODUÇÃO · O MEU ANO INICIA AGORA</p>
+        <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, calc(var(--dw) * 4.4 / 100), 46px); line-height: 1.12; font-weight: 800; color: #ffffff">O seu ano não começa em janeiro. Começa no dia em que você decide.</h1>
+        <p style="margin: 0; max-width: 600px; font-size: clamp(16px, calc(var(--dw) * 2 / 100), 18px)">A Travessia do Domador é uma jornada de um ano, um nível por mês, para encerrar ciclos velhos, encarar suas sombras e construir a sua história um mês por vez. E a sua introdução começa hoje.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+          <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)">🚀 COMEÇAR MINHA INTRODUÇÃO GRÁTIS</a>
+        </div>
+        <p style="margin: 0; font-size: 14px; color: #b9c9da">🪪 Gratuito para quem tem a Carteira Doma</p>
+      </section>
+
+      <!-- A GRANDE MENTIRA DE JANEIRO -->
+      <section style="display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(26px, calc(var(--dw) * 3.4 / 100), 34px); line-height: 1.2; font-weight: 800; color: #1a9fd9">A Grande Mentira de Janeiro 🗓️</h2>
+        <div style="max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; font-size: 17px">
+          <p style="margin: 0">Quantas vezes você jurou que, no dia 1º de janeiro, a sua vida mudaria magicamente? Quantas listas de resoluções você escreveu com entusiasmo, só para abandoná-las em fevereiro, exausto, culpado e exatamente no mesmo lugar?</p>
+          <p style="margin: 0">Existe uma crença silenciosa de que a virada do calendário tem o poder de apagar nossos medos, nossa procrastinação e nossas dores. Mas o seu inconsciente não obedece a calendários: <strong>ele obedece a ciclos.</strong> Esperar a data perfeita para mudar é a maior armadilha da autossabotagem.</p>
+        </div>
+        <p style="margin: 0 auto; max-width: 600px; padding: 16px 20px; border-radius: 14px; border: 2px dashed #bae6fd; background: #f0f9ff; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, calc(var(--dw) * 2.4 / 100), 22px); font-style: italic; font-weight: 700; color: #0f2744">“Recomeçar não exige que o calendário dê permissão.”</p>
+      </section>
+
+      <!-- COMO FUNCIONA: 3 PEÇAS -->
+      <section style="display: flex; flex-direction: column; gap: 18px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #0f2744">Como funciona a Travessia</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+          <div style="background: #fdf8f0; border-left: 5px solid #b8860b; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 28px; line-height: 1">📕</span>
+            <h3 style="margin: 0; font-size: 17px; color: #0f2744">O Meu Ano Inicia Agora</h3>
+            <p style="margin: 0; font-size: 14px; color: #475569">O livro físico e a introdução da jornada: o romance que abre a porta para o seu recomeço.</p>
+          </div>
+          <div style="background: #f0f9ff; border-left: 5px solid #1a9fd9; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 28px; line-height: 1">💻</span>
+            <h3 style="margin: 0; font-size: 17px; color: #0f2744">A Clínica dos Monstros</h3>
+            <p style="margin: 0; font-size: 14px; color: #475569">O livro online interativo, com áudios da Doma, exercícios práticos e ferramentas gamificadas.</p>
+          </div>
+          <div style="background: #fefce8; border-left: 5px solid #eab308; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 28px; line-height: 1">🗺️</span>
+            <h3 style="margin: 0; font-size: 17px; color: #0f2744">A Travessia do Domador</h3>
+            <p style="margin: 0; font-size: 14px; color: #475569">O caminho por todas as etapas do livro: depois da introdução, um nível novo por mês, contado a partir do dia em que você começa.</p>
+          </div>
+        </div>
+      </section>
+
+      <p style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 14px; line-height: 1.55; color: #334155">ℹ️ <strong>Importante:</strong> a Travessia é um material de autoconhecimento. Ela não é terapia e não substitui as sessões com um psicólogo, psicanalista ou médico. Se você quiser acompanhamento profissional, conheça os atendimentos da Clínica Doma ou procure um profissional de sua confiança.</p>
+
+      <!-- LIVRO FÍSICO -->
+      <section style="background: #fdf8f0; border-radius: 18px; padding: clamp(20px, calc(var(--dw) * 3 / 100), 28px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px">
+        <img src="https://static.wixstatic.com/media/253e81_9655ef93855746b39a7b16b0a62081b6~mv2.jpg" width="712" height="533" alt="Livro físico O Meu Ano Inicia Agora, um romance psicológico sobre vínculos, escolhas e a coragem de recomeçar" style="flex: 1 1 280px; min-width: 0; max-width: 380px; width: 100%; height: auto; display: block; border-radius: 14px">
+        <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; color: #b45309">📕 LIVRO FÍSICO · 222 PÁGINAS</p>
+          <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3 / 100), 30px); line-height: 1.2; font-weight: 800; color: #0f2744">O Meu Ano Inicia Agora</h2>
+          <p style="margin: 0">Um romance psicológico sobre vínculos, escolhas e a coragem de recomeçar, com o Caderno Doma de perguntas e exercícios para viver a história junto com a Lila.</p>
+          <p style="margin: 0; color: #0f2744"><span style="font-size: 15px; text-decoration: line-through; color: #64748b">R$ 159,99</span> <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 800">R$ 117,99</span> <span style="font-size: 13px; font-weight: 700; color: #b45309">pré-venda</span></p>
+          <a href="#" data-ir="/category/all-products" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #0f2744; color: #ffffff; font-weight: 800; text-decoration: none">🛒 Garantir o meu livro</a>
+        </div>
+      </section>
+
+      <!-- PLANOS -->
+      <section id="planos" style="display: flex; flex-direction: column; gap: 18px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); line-height: 1.2; font-weight: 800; color: #1a9fd9">Escolha o seu plano 📚</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+          <div style="border: 2px solid #bae6fd; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px; background: #ffffff">
+            <h3 style="margin: 0; font-size: 19px; color: #0f2744">🌱 Doma Básico</h3>
+            <p style="margin: 0; color: #0f2744"><span style="font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 800">R$ 149,99</span><span style="font-size: 15px">/mês</span></p>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; flex-grow: 1">
+              <li>🪪 Carteira Doma Básico</li>
+              <li>📖 Livro completo online + exercícios</li>
+              <li>👥 Comunidade exclusiva</li>
+              <li>💸 40% de desconto nas terapias presenciais</li>
+              <li>🎁 Sorteios e prêmios mensais</li>
+            </ul>
+            <a href="#" data-ir="/pricing-plans/plans-pricing" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; border: 2px solid #0b7cb8; color: #0b7cb8; font-weight: 800; text-decoration: none">QUERO O BÁSICO</a>
+          </div>
+          <div style="border: 3px solid #eab308; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px; background: #fffdf5">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px">
+              <h3 style="margin: 0; font-size: 19px; color: #0f2744">👑 Doma Premium</h3>
+              <span style="padding: 3px 10px; border-radius: 999px; background: #fef08a; color: #713f12; font-size: 12px; font-weight: 800">O MAIS COMPLETO</span>
+            </div>
+            <p style="margin: 0; color: #0f2744"><span style="font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 800">R$ 629,99</span><span style="font-size: 15px">/mês</span></p>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; flex-grow: 1">
+              <li>✅ Tudo do Básico</li>
+              <li>🛋️ <strong>2 sessões presenciais por mês</strong> (a cada 15 dias): psicanálise, hipnose clínica ou PNL</li>
+              <li>🎨 Arteterapia e jogos terapêuticos</li>
+              <li>🪩 Aulas de bambolê terapia</li>
+              <li>🎁 Kit Domador de boas-vindas</li>
+            </ul>
+            <a href="#" data-ir="/pricing-plans/plans-pricing" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; background: #15803d; color: #ffffff; font-weight: 800; text-decoration: none">🛒 QUERO O PREMIUM</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- A TRILHA DOS 12 NÍVEIS -->
+      <section style="display: flex; flex-direction: column; gap: 18px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 6px">
+          <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #0f2744">O mapa da sua Travessia 🗺️</h2>
+          <p style="margin: 0; color: #475569">Primeiro o Nível Introdutório. Depois, um nível novo a cada mês: o Mês 1 é o mês em que você começa, seja ele qual for.</p>
+        </div>
+
+        <!-- NÍVEL INTRODUTÓRIO -->
+        <div style="background: #0f2744; border-radius: 18px; padding: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; color: #e2e8f0">
+          <span style="flex: none; width: 56px; height: 56px; border-radius: 999px; background: #f7d774; display: flex; align-items: center; justify-content: center; font-size: 28px">📖</span>
+          <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #f7d774">NÍVEL INTRODUTÓRIO · GRÁTIS COM A CARTEIRA 🪪</span>
+            <strong style="color: #ffffff; font-size: 18px">O Meu Ano Inicia Agora</strong>
+            <span style="font-size: 14px">O diagnóstico do solo e o fim das ilusões: termo de compromisso, Raio-X de Energia Vital, Mochila de Descarte, Ritual Final e Roleta de Boas-Vindas.</span>
+          </div>
+        </div>
+        <p style="margin: 0; text-align: center; font-size: 22px; line-height: 1; color: #94a3b8" aria-hidden="true">⬇</p>
+
+        <!-- ETAPA 1 -->
+        <div style="border: 2px solid #bae6fd; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px; background: #ffffff">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+            <h3 style="margin: 0; font-size: 18px; color: #0f2744">🌅 O Despertar do Domador · Níveis 1 a 3</h3>
+            <span style="padding: 3px 10px; border-radius: 999px; background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800">DISPONÍVEL</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px">
+            <div style="background: #f0f9ff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+              <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #0b7cb8">NÍVEL 1 · MÊS 1</span>
+              <strong style="color: #0f2744; font-size: 17px">O Acolhimento</strong>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #475569"><li style="display: flex; gap: 8px; align-items: flex-start"><span>👋</span><span>Introdução: boas-vindas, Doma Coins e Carteira Digital</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🧩</span><span>Capítulo 1: O Acolhimento</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🃏</span><span>Jogo da Memória</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>📜</span><span>O Papel de Pão</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🏡</span><span>Triagem de Vida</span></li></ul>
+            </div>
+            <div style="background: #f0f9ff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+              <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #0b7cb8">NÍVEL 2 · MÊS 2</span>
+              <strong style="color: #0f2744; font-size: 17px">Não é Domar</strong>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #475569"><li style="display: flex; gap: 8px; align-items: flex-start"><span>🎩</span><span>Não é Domar</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🎒</span><span>A Bagagem do Domador</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🎡</span><span>A Roleta Interna</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🐙</span><span>Acolhendo o Polvo</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>⚖️</span><span>A Magia da Desidentificação</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🥚</span><span>Vamos chocar? O meu ovo</span></li></ul>
+            </div>
+            <div style="background: #f0f9ff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+              <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #0b7cb8">NÍVEL 3 · MÊS 3</span>
+              <strong style="color: #0f2744; font-size: 17px">O Tribunal Interno</strong>
+              <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #475569"><li style="display: flex; gap: 8px; align-items: flex-start"><span>🏛️</span><span>O Tribunal Interno</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🗣️</span><span>De quem é essa voz?</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🌳</span><span>A origem da voz</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🖼️</span><span>O Retrato Falado</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>🧸</span><span>Resgate da Criança Interior</span></li><li style="display: flex; gap: 8px; align-items: flex-start"><span>✉️</span><span>Uma Carta ao Domador</span></li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRÓXIMOS NÍVEIS -->
+        <div style="border: 2px dashed #cbd5e1; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; background: #f8fafc">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px">
+            <h3 style="margin: 0; font-size: 18px; color: #0f2744">🕯️ A seguir · A Caverna dos Monstros</h3>
+            <span style="padding: 3px 10px; border-radius: 999px; background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800">EM CONSTRUÇÃO</span>
+          </div>
+          <p style="margin: 0; font-size: 15px; color: #475569">Os próximos níveis: o mergulho em cada um dos seus monstrinhos, um por um.</p>
+        </div>
+
+        <!-- ÚLTIMO NÍVEL -->
+        <div style="border: 2px solid #fde68a; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; background: #fffdf5">
+          <h3 style="margin: 0; font-size: 18px; color: #0f2744">🏆 Último nível · O Tesouro do Domador</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: #475569"><li>💎 O Tesouro do Domador</li><li>🎁 A Jornada pelos Insights</li><li>🎉 Você chegou ao final!</li></ul>
+        </div>
+      </section>
+
+      <!-- O QUE VOCÊ VAI APRENDER -->
+      <section style="background: #fff1f2; border-radius: 18px; padding: clamp(22px, calc(var(--dw) * 4 / 100), 34px) clamp(16px, calc(var(--dw) * 4 / 100), 34px); display: flex; flex-direction: column; gap: 14px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, calc(var(--dw) * 3 / 100), 30px); font-weight: 800; color: #be123c">Ao longo da Travessia, você vai aprender a:</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px">
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🔬</span><span>Olhar de verdade para o seu solo interno e esvaziar a mochila emocional do passado.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">👾</span><span>Mapear e desarmar seus Monstros Internos: perfeccionismo, procrastinação, síndrome do impostor.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🔋</span><span>Construir um cronograma compassivo que protege a sua energia vital.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🧸</span><span>Resgatar a sua Criança Interior e olhar para a necessidade de agradar.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🧭</span><span>Recalcular rotas com flexibilidade, sem sentir culpa.</span></li>
+        </ul>
+      </section>
+
+      <!-- DENTRO DO NÍVEL 1 -->
+      <section style="display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #1a9fd9">O que te espera no Nível Introdutório 🎒</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+          <div style="background: #f0f9ff; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start"><span style="font-size: 26px; line-height: 1">✍️</span><span><strong style="color: #0f2744">Termo de Compromisso</strong><br><span style="font-size: 14px; color: #475569">Você assina o seu pacto de autorresponsabilidade, guiado pela voz da Doma.</span></span></div>
+          <div style="background: #f0fdfa; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start"><span style="font-size: 26px; line-height: 1">📡</span><span><strong style="color: #0f2744">Raio-X de Energia Vital</strong><br><span style="font-size: 14px; color: #475569">Descubra para onde a sua energia foi no último ciclo.</span></span></div>
+          <div style="background: #fdf2f8; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start"><span style="font-size: 26px; line-height: 1">🎒</span><span><strong style="color: #0f2744">Mochila de Descarte</strong><br><span style="font-size: 14px; color: #475569">Coloque na mochila as pedras que você não quer mais carregar.</span></span></div>
+          <div style="background: #fff7ed; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start"><span style="font-size: 26px; line-height: 1">🔥</span><span><strong style="color: #0f2744">O Ritual Final</strong><br><span style="font-size: 14px; color: #475569">Queime o papel e encerre o ciclo velho, de verdade.</span></span></div>
+          <div style="background: #fefce8; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start"><span style="font-size: 26px; line-height: 1">🎡</span><span><strong style="color: #0f2744">Roleta de Boas-Vindas</strong><br><span style="font-size: 14px; color: #475569">Conheça o hóspede que vai te acompanhar na Travessia.</span></span></div>
+          <div style="background: #f5f3ff; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start"><span style="font-size: 26px; line-height: 1">🪙</span><span><strong style="color: #0f2744">Doma Coins</strong><br><span style="font-size: 14px; color: #475569">Ganhe 10 moedas ao assinar o termo e troque por ferramentas: Caneta da Coragem 🖊️, Mochila 🎒 e Fósforo 🧨.</span></span></div>
+        </div>
+      </section>
+
+      <!-- O TERMO -->
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+        <p style="margin: 0; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: #64748b">TRECHO DO TERMO DE COMPROMISSO</p>
+        <blockquote style="margin: 0; max-width: 620px; padding: 22px 24px; border-radius: 16px; background: #fdf8f0; border: 2px solid #ead9b8; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, calc(var(--dw) * 2.4 / 100), 23px); font-style: italic; font-weight: 700; line-height: 1.45; color: #0f2744">“Eu não sou vítima das minhas circunstâncias; eu sou o autor da minha rota. Minha Travessia começa agora!”</blockquote>
+      </section>
+
+      <!-- MÉTODO + LIVRO -->
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #0f2744">Arquitetura do Método</h2>
+        <div style="width: 150px; height: 150px; border-radius: 999px; background: #0f2744; box-shadow: 0 0 0 8px #e0f2fe; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffffff">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em">METODOLOGIA</span>
+          <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 900; color: #f7d774">DOMA</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 640px">
+          <span style="padding: 8px 14px; border-radius: 999px; background: #f0f9ff; font-size: 15px; font-weight: 600; color: #0f2744">🧠 Psicanálise</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #f5f3ff; font-size: 15px; font-weight: 600; color: #0f2744">🌀 Hipnoterapia</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #f0fdf4; font-size: 15px; font-weight: 600; color: #0f2744">🧘‍♀️ Mindfulness</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #fff7ed; font-size: 15px; font-weight: 600; color: #0f2744">🧸 Resgate da Criança Interior</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #fdf2f8; font-size: 15px; font-weight: 600; color: #0f2744">🎮 Jogos dos Monstrinhos</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #fefce8; font-size: 15px; font-weight: 600; color: #0f2744">🎨 Arteterapia</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #ecfeff; font-size: 15px; font-weight: 600; color: #0f2744">🪩 Bambolê Terapia</span>
+          <span style="padding: 8px 14px; border-radius: 999px; background: #f1f5f9; font-size: 15px; font-weight: 600; color: #0f2744">✍️ Escrita Terapêutica</span>
+        </div>
+        <img src="https://static.wixstatic.com/media/253e81_5ef317b6eca6490991a21f40eb217cf9~mv2.jpg" width="711" height="406" alt="Ilustração do livro: menino com mochila na porta da Clínica dos Monstros e um polvo roxo carregando consultas, remédios e preocupações" style="width: 100%; height: auto; display: block; border-radius: 18px">
+        <div style="width: 100%; background: #fdf8f0; border-radius: 18px; padding: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px; box-sizing: border-box; text-align: left">
+          <img src="https://raw.githubusercontent.com/clinicadoma/doma_assets/main/site/livro.jpg" width="330" height="340" alt="Capa do livro A Clínica dos Monstros: Da dor à Travessia" style="width: 200px; height: auto; display: block">
+          <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+            <p style="margin: 0; font-size: 16px">📖 O coração desse método é o nosso <strong>Livro Interativo Gamificado</strong>, exclusivo da Clínica Doma: testes, dinâmicas e muitos exercícios práticos para entender o porquê de cada decisão tomada até hoje.</p>
+            <a href="#" data-ir="/category/all-products" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #0f2744; color: #ffffff; font-weight: 800; text-decoration: none">Conheça o Vol. I 📖</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACESSO -->
+      <section id="comecar" style="display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.2 / 100), 32px); font-weight: 800; color: #0f2744">Como entrar na Travessia</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px">
+          <div style="border: 2px solid #bae6fd; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+            <h3 style="margin: 0; font-size: 19px; color: #0f2744">🪪 Com a Carteira gratuita</h3>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; flex-grow: 1">
+              <li>✅ Nível Introdutório completo</li>
+              <li>✅ Suas primeiras Doma Coins</li>
+              <li>✅ Seu progresso fica salvo na sua conta</li>
+            </ul>
+            <a href="#" data-ir="/carteira-doma" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; background: #0b7cb8; color: #ffffff; font-weight: 800; text-decoration: none">EMITIR MINHA CARTEIRA GRÁTIS</a>
+          </div>
+          <div style="border: 3px solid #eab308; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #fffdf5">
+            <h3 style="margin: 0; font-size: 19px; color: #0f2744">👑 Com um plano Doma</h3>
+            <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; flex-grow: 1">
+              <li>✅ Um nível novo da Travessia a cada mês de plano</li>
+              <li>✅ Graduação na sua carteira a cada nível</li>
+              <li>✅ Comunidade, sorteios e benefícios do plano</li>
+            </ul>
+            <a href="#" data-ir="/planos" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; background: #15803d; color: #ffffff; font-weight: 800; text-decoration: none">VER OS PLANOS</a>
+          </div>
+        </div>
+        <p style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 14px; line-height: 1.55; color: #334155">ℹ️ <strong>Importante:</strong> o Plano Premium inclui sessões presenciais com a terapeuta. A Travessia, em qualquer plano, continua sendo um material de autoconhecimento e não substitui essas sessões.</p>
+      </section>
+
+      <!-- FECHAMENTO -->
+      <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 36px); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; color: #e2e8f0">
+        <p style="margin: 0; max-width: 560px; font-size: 17px">Pare de lutar contra a sua própria mente. Pare de esperar o momento perfeito. Encerre seus ciclos velhos agora, encare suas sombras hoje e construa a sua história um mês por vez.</p>
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, calc(var(--dw) * 3.4 / 100), 34px); font-weight: 800; color: #ffffff">O seu verdadeiro ano começa agora. Você está pronto para a Travessia?</h2>
+        <a href="#" data-ir="/carteira-doma" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none">🚀 COMEÇAR MINHA INTRODUÇÃO</a>
+      </section>
+
+    <!-- APOIO EM CRISE -->
+      <section style="background: #eff6ff; border-radius: 16px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start">
+        <span style="font-size: 26px; line-height: 1">💙</span>
+        <p style="margin: 0; font-size: 15px; color: #1e3a8a"><strong>Precisa de ajuda agora?</strong> Se você está em crise ou pensando em se machucar, ligue <strong>188</strong> (CVV): 24 horas e gratuito. Em emergência, <strong>192</strong> (SAMU).</p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  
+
+</div>
+</div>
+<script>
+(function(){
+  var palco=document.getElementById('palco');
+  // largura de desenho por faixa de tela (as mesmas faixas do Wix Studio)
+  function larguraDeDesenho(w){ return w>1000?1280:(w>750?820:390); }
+  var ultimo='';
+  function ajustar(){
+    var w=window.innerWidth,h=window.innerHeight; if(!w||!h) return;
+    var d=larguraDeDesenho(w);
+    palco.style.width=d+'px'; palco.style.setProperty('--dw',d+'px');
+    var H=palco.offsetHeight; if(!H) return;
+    var zl=w/d, z=Math.min(zl,h/H);
+    var cabe=true;
+    if(z<zl*0.9){ z=zl*0.9; cabe=false; }           // quadro curto demais: não encolhe além de 10%
+    document.documentElement.style.overflowY=cabe?'hidden':'auto';
+    document.body.style.overflowY=cabe?'hidden':'auto';
+    var x=Math.max(0,(w-d*z)/2);
+    palco.style.transform='translate('+x+'px,0) scale('+z+')';
+    palco.style.visibility='visible';
+    var chave=[d,H,w,h].join(',');
+    if(chave!==ultimo){ ultimo=chave; try{ parent.postMessage({acao:'domaTamanho',desenho:d,altura:H,quadroL:w,quadroA:h,proporcao:+(H/d).toFixed(4)},'*'); }catch(e){} }
+  }
+  var t=null; function agendar(){ if(t) cancelAnimationFrame(t); t=requestAnimationFrame(ajustar); }
+  window.addEventListener('resize',agendar);
+  window.addEventListener('load',agendar);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(agendar);
+  if(window.ResizeObserver) new ResizeObserver(agendar).observe(palco);
+  ajustar();
+
+  // links internos: quem navega (ou rola a tela) é a página do Wix
+  function rolarPara(id){
+    var alvo=document.getElementById(id); if(!alvo) return;
+    var topo=alvo.getBoundingClientRect().top;
+    if(!window.IntersectionObserver){ return; }
+    var io=new IntersectionObserver(function(es){
+      io.disconnect();
+      var vis=(es[0]&&es[0].intersectionRect)?es[0].intersectionRect.top:0;   // primeira linha do bloco que está visível na tela
+      try{ parent.postMessage({acao:'rolar',dy:Math.round(topo-vis-70)},'*'); }catch(e){}
+    });
+    io.observe(palco);
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
+    ev.preventDefault();
+    if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

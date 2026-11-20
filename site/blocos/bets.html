@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica Doma — Vício em apostas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#f1f5f9;overflow:hidden}
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#palco{position:absolute;top:0;left:0;width:1280px;--dw:1280px;transform-origin:0 0;visibility:hidden}
+a{color:#0b7cb8}a:hover{color:#0f2744}
+a[data-ir],a[data-rolar],a[target]{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+a[data-ir]:hover,a[data-rolar]:hover,a[target]:hover{filter:brightness(1.05)}
+button{cursor:pointer}
+/* vitrola */
+.vit-disco{animation:vit-gira 2.6s linear infinite;animation-play-state:paused}
+.vit-tocando .vit-disco{animation-play-state:running}
+.vit-braco{transition:transform .7s ease}
+.vit-tocando .vit-braco{transform:rotate(24deg) !important}
+@keyframes vit-gira{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.vit-barra{width:200px;height:6px;border-radius:999px;background:#eadfce;overflow:hidden}
+.vit-barra>i{display:block;height:100%;width:0;background:#c2410c;border-radius:999px}
+@media (prefers-reduced-motion:reduce){.vit-disco{animation:none}}
+</style>
+</head>
+<body>
+<div id="palco">
+<div style="width: 100%; min-height: 100%; background: #f1f5f9; padding: 20px 12px 28px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1f2937; font-size: 16px; line-height: 1.6">
+
+  <main id="topo" style="max-width: 820px; margin: 0 auto; background: #ffffff; border-top: 6px solid #1a9fd9; border-radius: 22px; box-shadow: 0 10px 30px rgba(15, 39, 68, 0.08); overflow: hidden">
+
+    <!-- LOGO -->
+    <header style="padding: 22px 20px 18px; display: flex; justify-content: center; align-items: center; gap: 12px; border-bottom: 2px dashed #e2e8f0">
+      <img src="https://static.wixstatic.com/media/253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp" width="320" height="384" alt="Logo Clínica Doma" style="width: 60px; height: auto; display: block">
+      <div style="display: flex; flex-direction: column; line-height: 1">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: #64748b">CONHEÇA A</span>
+        <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 800; color: #0f2744">Clínica <span style="color: #b8860b">Doma</span></span>
+      </div>
+    </header>
+
+    <div style="padding: clamp(16px, calc(var(--dw) * 3 / 100), 28px); display: flex; flex-direction: column; gap: clamp(28px, calc(var(--dw) * 4 / 100), 40px)">
+
+      <!-- ALERTA -->
+      <section style="background: linear-gradient(180deg, #0f2744 0%, #1b3d63 100%); border-radius: 18px; padding: clamp(24px, calc(var(--dw) * 4 / 100), 40px) clamp(18px, calc(var(--dw) * 4 / 100), 40px); display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #e2e8f0">
+        <p style="margin: 0; padding: 6px 14px; border-radius: 999px; background: #e11d48; color: #ffffff; font-size: 13px; font-weight: 800; letter-spacing: 0.04em">🚨 ALERTA: O MONSTRO DAS APOSTAS</p>
+        <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, calc(var(--dw) * 4 / 100), 42px); line-height: 1.15; font-weight: 800; color: #ffffff">Vício em apostas (bets): existe um caminho de volta</h1>
+        <p style="margin: 0; max-width: 600px; font-size: clamp(16px, calc(var(--dw) * 2 / 100), 18px)">Existe um monstro invisível que destrói mentes, lares e patrimônios inteiros: o vício silencioso em apostas online 🎰. Se você caiu nessa armadilha e não consegue sair, ou vê alguém que ama afundando nesse ciclo, saiba que <strong style="color: #ffffff">não precisa enfrentar isso sozinho.</strong></p>
+        <img src="https://raw.githubusercontent.com/clinicadoma/doma_assets/main/site/triste.jpg" width="601" height="645" alt="Monstrinho azul triste abraçando um coração partido" style="width: 100%; max-width: 240px; height: auto; display: block; border-radius: 16px; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35)">
+        <a href="#" data-rolar="guia" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #f7d774; color: #0f2744; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)">🛟 INICIAR O GUIA DE RESGATE GRATUITO</a>
+      </section>
+
+      <!-- AJUDA AGORA -->
+      <section aria-labelledby="ajuda-titulo" style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 18px; padding: clamp(20px, calc(var(--dw) * 3 / 100), 28px); display: flex; flex-direction: column; gap: 14px">
+        <h2 id="ajuda-titulo" style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, calc(var(--dw) * 3 / 100), 28px); font-weight: 800; color: #1e3a8a">💙 Precisa de ajuda agora?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+            <strong style="color: #0f2744">📞 CVV: ligue 188</strong>
+            <span style="font-size: 14px; color: #475569">24 horas e gratuito, se você está em crise ou pensando em se machucar. Em emergência, 192 (SAMU).</span>
+          </div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+            <strong style="color: #0f2744">🚫 Bloqueie seu CPF nas bets</strong>
+            <span style="font-size: 14px; color: #475569">A Plataforma Centralizada de Autoexclusão, do Ministério da Fazenda, bloqueia você de todos os sites de apostas autorizados de uma vez, com login gov.br.</span>
+          </div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+            <strong style="color: #0f2744">🤝 Jogadores Anônimos</strong>
+            <span style="font-size: 14px; color: #475569">Grupos de apoio gratuitos, presenciais e online. <a href="https://jogadoresanonimos.com.br/" target="_blank" rel="noopener">jogadoresanonimos.com.br</a></span>
+          </div>
+          <div style="background: #ffffff; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+            <strong style="color: #0f2744">🏥 Atendimento gratuito pelo SUS</strong>
+            <span style="font-size: 14px; color: #475569">UBS e CAPS atendem quem sofre com apostas. Ligue 136 para encontrar o CAPS mais perto. Em São Paulo, o PRO-AMJO do Hospital das Clínicas: (11) 2661-7805.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- A PERGUNTA -->
+      <section style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+        <p style="margin: 0; font-size: 34px; line-height: 1">🤔</p>
+        <blockquote style="margin: 0; max-width: 620px; padding: 20px 22px; border-radius: 16px; border: 2px dashed #bae6fd; background: #f0f9ff; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(19px, calc(var(--dw) * 2.4 / 100), 23px); font-style: italic; font-weight: 700; line-height: 1.45; color: #0f2744">“Afinal, o vício seria um monstrinho solitário, ou a soma de várias pequenas dores e sintomas que, quando silenciados, pedem juntos para serem ouvidos?”</blockquote>
+        <p style="margin: 0; max-width: 600px">Na Doma, a gente acredita que por trás do jogo quase sempre existe uma dor pedindo atenção: ansiedade, solidão, culpa, pressão financeira. Cuidar dela é parte do caminho de volta.</p>
+      </section>
+
+      <!-- SINAIS DE ALERTA -->
+      <section style="background: #fff1f2; border-radius: 18px; padding: clamp(22px, calc(var(--dw) * 4 / 100), 34px) clamp(16px, calc(var(--dw) * 4 / 100), 34px); display: flex; flex-direction: column; gap: 16px">
+        <div style="text-align: center; display: flex; flex-direction: column; gap: 6px">
+          <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, calc(var(--dw) * 3 / 100), 30px); font-weight: 800; color: #be123c">O monstro das apostas já chegou perto de você? 🎰</h2>
+          <p style="margin: 0; color: #9f1239; font-weight: 600">Veja se algum desses sinais tem aparecido:</p>
+        </div>
+        <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px">
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🔁</span><span>Você aposta de novo para tentar recuperar o que perdeu.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🤫</span><span>Esconde de quem ama quanto tempo ou dinheiro gasta apostando.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">💳</span><span>Já usou dinheiro das contas, ou pegou empréstimo, para apostar.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">😤</span><span>Fica irritado ou ansioso quando tenta diminuir.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🚪</span><span>Já tentou parar e não conseguiu.</span></li>
+          <li style="background: #ffffff; border-radius: 12px; padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start"><span style="font-size: 22px; line-height: 1.2">🧠</span><span>Pensa em apostas boa parte do dia, até no trabalho ou com a família.</span></li>
+        </ul>
+        <p style="margin: 0; text-align: center; font-size: 15px; color: #881337">Isso não é um diagnóstico. Mas se você se reconheceu em algum desses sinais, vale muito conversar com alguém. 💛</p>
+      </section>
+
+      <!-- GUIA DE RESGATE -->
+      <section id="guia" style="border: 2px solid #bbf7d0; border-top: 6px solid #22c55e; border-radius: 18px; padding: clamp(22px, calc(var(--dw) * 4 / 100), 34px); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+        <span style="font-size: 40px; line-height: 1">🛟</span>
+        <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, calc(var(--dw) * 3 / 100), 30px); font-weight: 800; color: #0f2744">Guia de Resgate Gratuito</h2>
+        <p style="margin: 0; max-width: 560px">Um primeiro passo para olhar a dor por trás do jogo, no seu ritmo, preparado pela Clínica Doma.</p>
+        <p style="margin: 0; padding: 14px 16px; border-radius: 14px; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 14px; line-height: 1.55; color: #334155">ℹ️ <strong>Importante:</strong> o Guia de Resgate é um material de autoconhecimento, não um tratamento. O vício em apostas tem tratamento, feito com profissionais: veja os contatos em “Precisa de ajuda agora?” ou agende uma sessão.</p>
+        <a href="#" data-ir="/guia-de-resgate" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background: #15803d; color: #ffffff; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3)">CLIQUE AQUI PARA INICIAR O RESGATE!</a>
+      </section>
+
+      <!-- PARA A FAMÍLIA -->
+      <section style="background: #fefce8; border-radius: 18px; padding: clamp(22px, calc(var(--dw) * 4 / 100), 34px) clamp(16px, calc(var(--dw) * 4 / 100), 34px); display: flex; flex-direction: column; gap: 14px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, calc(var(--dw) * 3 / 100), 28px); font-weight: 800; color: #0f2744">Para quem ama alguém nessa situação 💛</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px">
+          <div style="background: #ffffff; border-left: 5px solid #eab308; border-radius: 12px; padding: 14px 16px"><strong style="color: #0f2744">🗣️ Converse sem julgamento.</strong> <span style="font-size: 15px">Vergonha alimenta o monstro; acolhimento enfraquece.</span></div>
+          <div style="background: #ffffff; border-left: 5px solid #eab308; border-radius: 12px; padding: 14px 16px"><strong style="color: #0f2744">🏦 Proteja as finanças da casa.</strong> <span style="font-size: 15px">Evite assumir dívidas sem um plano combinado.</span></div>
+          <div style="background: #ffffff; border-left: 5px solid #eab308; border-radius: 12px; padding: 14px 16px"><strong style="color: #0f2744">🚫 Sugira a autoexclusão.</strong> <span style="font-size: 15px">O bloqueio do CPF é feito pela própria pessoa, no gov.br.</span></div>
+          <div style="background: #ffffff; border-left: 5px solid #eab308; border-radius: 12px; padding: 14px 16px"><strong style="color: #0f2744">🫶 Cuide de você também.</strong> <span style="font-size: 15px">Quem convive com o vício também sofre, e também merece apoio.</span></div>
+        </div>
+      </section>
+
+      <!-- COMO A DOMA AJUDA -->
+      <section style="display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, calc(var(--dw) * 3 / 100), 30px); font-weight: 800; color: #1a9fd9">Como a Clínica Doma pode ajudar</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+          <div style="background: #f0f9ff; border-left: 5px solid #1a9fd9; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 28px; line-height: 1">🛋️</span>
+            <h3 style="margin: 0; font-size: 17px; color: #0f2744">Sessões presenciais</h3>
+            <p style="margin: 0; font-size: 14px; color: #475569">Psicanálise e hipnose clínica para entender e tratar a dor por trás do jogo. Centro de Osasco/SP.</p>
+          </div>
+          <div style="background: #fdf2f8; border-left: 5px solid #ec4899; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 28px; line-height: 1">📕</span>
+            <h3 style="margin: 0; font-size: 17px; color: #0f2744">Livro “Vícios e Compulsões: A Caixa Preta”</h3>
+            <p style="margin: 0; font-size: 14px; color: #475569">Livro físico da Clínica Doma sobre vícios e compulsões. Em pré-venda na Loja Doma.</p>
+          </div>
+          <div style="background: #f0fdfa; border-left: 5px solid #14b8a6; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 28px; line-height: 1">🗺️</span>
+            <h3 style="margin: 0; font-size: 17px; color: #0f2744">A Travessia</h3>
+            <p style="margin: 0; font-size: 14px; color: #475569">Material de autoconhecimento com exercícios e comunidade, um nível por mês. Não substitui as sessões.</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+          <a href="https://wa.me/5511963272059" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: #15803d; color: #ffffff; font-weight: 800; text-decoration: none">💬 CONVERSAR NO WHATSAPP</a>
+          <a href="#" data-ir="/planos" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 2px solid #0b7cb8; color: #0b7cb8; font-weight: 800; text-decoration: none">VER OS PLANOS</a>
+        </div>
+        <p style="margin: 0; text-align: center; font-size: 13px; color: #64748b">Os conteúdos online são material de autoconhecimento e não substituem a terapia. E as sessões da Doma não substituem o acompanhamento médico ou psiquiátrico quando ele for necessário.</p>
+      </section>
+
+      <!-- AVANÇAR -->
+      <a href="#" data-ir="/a-travessia" style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 14px; background: #f1f5f9; color: #0f2744; font-weight: 700; text-decoration: none">Caso esta não seja a sua condição, avance para a Travessia ►</a>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  
+
+</div>
+</div>
+<script>
+(function(){
+  var palco=document.getElementById('palco');
+  // largura de desenho por faixa de tela (as mesmas faixas do Wix Studio)
+  function larguraDeDesenho(w){ return w>1000?1280:(w>750?820:390); }
+  var ultimo='';
+  function ajustar(){
+    var w=window.innerWidth,h=window.innerHeight; if(!w||!h) return;
+    var d=larguraDeDesenho(w);
+    palco.style.width=d+'px'; palco.style.setProperty('--dw',d+'px');
+    var H=palco.offsetHeight; if(!H) return;
+    var zl=w/d, z=Math.min(zl,h/H);
+    var cabe=true;
+    if(z<zl*0.9){ z=zl*0.9; cabe=false; }           // quadro curto demais: não encolhe além de 10%
+    document.documentElement.style.overflowY=cabe?'hidden':'auto';
+    document.body.style.overflowY=cabe?'hidden':'auto';
+    var x=Math.max(0,(w-d*z)/2);
+    palco.style.transform='translate('+x+'px,0) scale('+z+')';
+    palco.style.visibility='visible';
+    var chave=[d,H,w,h].join(',');
+    if(chave!==ultimo){ ultimo=chave; try{ parent.postMessage({acao:'domaTamanho',desenho:d,altura:H,quadroL:w,quadroA:h,proporcao:+(H/d).toFixed(4)},'*'); }catch(e){} }
+  }
+  var t=null; function agendar(){ if(t) cancelAnimationFrame(t); t=requestAnimationFrame(ajustar); }
+  window.addEventListener('resize',agendar);
+  window.addEventListener('load',agendar);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(agendar);
+  if(window.ResizeObserver) new ResizeObserver(agendar).observe(palco);
+  ajustar();
+
+  // links internos: quem navega (ou rola a tela) é a página do Wix
+  function rolarPara(id){
+    var alvo=document.getElementById(id); if(!alvo) return;
+    var topo=alvo.getBoundingClientRect().top;
+    if(!window.IntersectionObserver){ return; }
+    var io=new IntersectionObserver(function(es){
+      io.disconnect();
+      var vis=(es[0]&&es[0].intersectionRect)?es[0].intersectionRect.top:0;   // primeira linha do bloco que está visível na tela
+      try{ parent.postMessage({acao:'rolar',dy:Math.round(topo-vis-70)},'*'); }catch(e){}
+    });
+    io.observe(palco);
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('a[data-ir],a[data-rolar]'):null; if(!a) return;
+    ev.preventDefault();
+    if(a.hasAttribute('data-rolar')){ rolarPara(a.getAttribute('data-rolar')); return; }
+    try{ parent.postMessage({acao:'irPara',destino:a.getAttribute('data-ir')},'*'); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
