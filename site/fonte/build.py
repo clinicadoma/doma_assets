@@ -277,7 +277,25 @@ def raiz(arquivo):
     s = open(os.path.join(PROTO, arquivo), encoding='utf-8').read()
     i = s.find('</helmet>') + len('</helmet>')
     j = s.find('</x-dc>')
-    return s[i:j].strip()
+    return beneficios_dos_planos(s[i:j].strip())
+
+
+def beneficios_dos_planos(c):
+    """21/11/2026: devolve aos cartões dos planos três benefícios do site atual que tinham ficado de fora
+    (Programa de Indicação, Carteira Premium e descontos nos Sábados de Conexão)."""
+    trocas = [
+        ('<li>🎁 Sorteios e prêmios mensais</li>',
+         '<li>🎁 Sorteios e prêmios mensais</li>\n              <li>🤝 Programa de indicação</li>'),
+        ('<li>✅ Tudo do Básico</li>',
+         '<li>✅ Tudo do Básico</li>\n              <li>🪪 Carteira Doma Premium</li>'),
+        ('<li>🪩 Aulas de bambolê terapia</li>',
+         '<li>🪩 Aulas de bambolê terapia</li>\n              <li>🎉 Descontos nos Sábados de Conexão</li>'),
+    ]
+    for velho, novo in trocas:
+        n = c.count(velho)
+        assert n in (0, 1), (velho, n)
+        c = c.replace(velho, novo)
+    return c
 
 
 def home():

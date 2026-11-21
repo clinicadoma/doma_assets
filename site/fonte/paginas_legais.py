@@ -113,7 +113,7 @@ def faq_blocos():
         ('Quais são os planos?',
          _lista(['<strong style="color: #0f2744">Carteira Doma (grátis):</strong> Nível 1 da Travessia e link de indicação.',
                  '<strong style="color: #0f2744">Doma Básico (R$ 149,99 por mês):</strong> livro completo online com exercícios, comunidade exclusiva, 40% de desconto nas terapias presenciais e sorteios mensais.',
-                 '<strong style="color: #0f2744">Doma Premium (R$ 629,99 por mês):</strong> tudo do Básico, mais 2 sessões presenciais por mês (a cada 15 dias), arteterapia e jogos terapêuticos, aulas de bambolê terapia e o Kit Domador de boas-vindas.'])
+                 '<strong style="color: #0f2744">Doma Premium (R$ 629,99 por mês):</strong> tudo do Básico, mais 2 sessões presenciais por mês (a cada 15 dias), Carteira Doma Premium, arteterapia e jogos terapêuticos, aulas de bambolê terapia, descontos nos Sábados de Conexão e o Kit Domador de boas-vindas.'])
          + _p(a('/planos', 'Ver os planos'))),
         ('Qual plano escolher?',
          _p('Para conhecer a Doma sem pagar nada, comece pela Carteira gratuita. Para fazer a Travessia completa no seu ritmo, escolha o Básico. Para fazer a Travessia com sessões presenciais a cada 15 dias, escolha o Premium.')),
