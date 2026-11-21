@@ -15,4 +15,12 @@ Sem o "concordo" o código da página não chama `salvarMeuProgresso`; ele segur
 progresso na memória e pede a tela de novo. Com o "concordo", o registro
 `{ aceito, quando, versao }` vai junto em todo progresso salvo. "Agora não" leva para /a-travessia.
 
-Falta: o livro (Nível 2 em diante, página /livro-a-travessia) ainda não confere esse consentimento.
+## Livro (Nível 2 em diante, página /livro-a-travessia) - 20/11/2026
+
+O livro confere o mesmo registro. Os dois arquivos colados no Wix ficam só no depósito privado
+livro_a_travessia_v2, pasta `wix/`: `wix-loader.html` (elemento `#html38`) e `pagina-livro.js`
+(código da página, arquivo `aegbn.js` no Wix).
+
+Sem o "concordo", a página do livro não chama `salvarChavesLivro`: segura as respostas na memória e
+mostra a tela "Antes de continuar". Quem concorda no livro tem o registro gravado no progresso do
+Nível 1, por `salvarMeuProgresso`. Quem não tem progresso do Nível 1 é levado para /nivel-1.
