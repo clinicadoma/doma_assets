@@ -3,7 +3,9 @@
      Conversa com o código da página (wix/pagina-nivel-1.js):
        página -> HTML: { origem:'wix-travessia', status:'ok', consentimento:true|false, urlPrivacidade }
                        { origem:'wix-travessia', tipo:'pedir-consentimento' }
-       HTML -> página: { origem:'travessia', tipo:'consentimento', aceito:true|false } -->
+       HTML -> página: { origem:'travessia', tipo:'consentimento', aceito:true|false }
+     21/11/2026: este trecho também põe, dentro do Termo de Compromisso (logo acima do botão de
+     assinar), o aviso de que a Travessia é material de autoconhecimento e não é terapia. -->
 <style>
 /* tudo com !important: o jogo tem regras gerais para p, h2, li e button que vazavam para esta tela */
 #dc-fundo{position:fixed !important;top:0;left:0;right:0;bottom:0;z-index:2147483000;display:none;align-items:center;justify-content:center;margin:0 !important;padding:8px !important;background:rgba(15,39,68,.94) !important;box-sizing:border-box}
@@ -25,6 +27,7 @@
 #dc-sim:disabled{background:#cbd5e1 !important;border-color:#cbd5e1 !important;color:#64748b !important;cursor:not-allowed}
 #dc-nao{background:#ffffff !important;color:#0f2744 !important;border:2px solid #0f2744 !important}
 #dc-caixa #dc-rodape{margin:0 !important;font-size:12.5px !important;line-height:1.45 !important;color:#64748b !important}
+#dc-aviso-termo{display:block !important;max-width:560px !important;margin:6px auto 18px !important;padding:12px 14px !important;border-radius:12px !important;background:#fffbeb !important;border:1px solid #f7d774 !important;color:#334155 !important;font-family:Inter,Arial,Helvetica,sans-serif !important;font-size:14px !important;line-height:1.5 !important;font-weight:400 !important;font-style:normal !important;text-align:left !important;text-shadow:none !important;letter-spacing:normal !important;text-transform:none !important;box-sizing:border-box !important}
 #dc-link{color:#0b7cb8 !important;font-size:12.5px !important;font-weight:700 !important;text-decoration:underline !important}
 </style>
 <div id="dc-fundo" role="dialog" aria-modal="true" aria-labelledby="dc-titulo">
@@ -57,6 +60,20 @@
   sim.addEventListener('click',function(){ if(!aceite.checked) return; concordou=true; fechar(); mandar(true); });
   nao.addEventListener('click',function(){ mandar(false); });
   link.addEventListener('click',function(ev){ if(!temLink) ev.preventDefault(); });
+  // Aviso dentro do Termo de Compromisso, logo acima do botão de assinar
+  function porAvisoNoTermo(){
+    try{
+      if(document.getElementById('dc-aviso-termo')) return;
+      var botao=document.querySelector('[onclick*="assinarTermo"]');
+      if(!botao||!botao.parentNode) return;
+      var aviso=document.createElement('p');
+      aviso.id='dc-aviso-termo';
+      aviso.textContent='ℹ️ Importante: a Travessia e os conteúdos online da Clínica Doma são um material de autoconhecimento. Eles não são terapia e não substituem as sessões com um psicólogo, psicanalista ou médico.';
+      botao.parentNode.insertBefore(aviso,botao);
+    }catch(e){}
+  }
+  porAvisoNoTermo();
+  document.addEventListener('DOMContentLoaded',porAvisoNoTermo);
   window.addEventListener('message',function(ev){
     var d=ev.data; if(!d||d.origem!=='wix-travessia') return;
     if(d.tipo==='pedir-consentimento'){ concordou=false; abrir(); return; }
