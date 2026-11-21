@@ -32,3 +32,13 @@ que não existe mais (aparecia "image not found"). As quatro ocorrências passar
 Clínica Doma, o mesmo do cabeçalho das páginas novas
 (`https://static.wixstatic.com/media/253e81_0452afd60bae4cfda9e23427567f0f36~mv2.webp`).
 
+## 21/11/2026 - Imagem que vinha do depósito antigo do livro
+
+O Nível 1 carregava uma imagem (`Captura-de-tela-2025-09-27-133248.png`) direto do depósito antigo e público
+`clinicadoma/livro_a_travessia`. Se esse depósito for apagado ou ficar privado, a imagem some. Ela passou a vir
+da mídia do site novo: `https://static.wixstatic.com/media/253e81_a793750068d44bc8b22777a30adbde05~mv2.png`
+(mesmo arquivo, conferido ponto a ponto).
+
+O que o Nível 1 ainda busca fora do Wix: as fontes (Google Fonts), a biblioteca que gera a foto da carteirinha
+(cdnjs) e os sons (assets.mixkit.co).
+
