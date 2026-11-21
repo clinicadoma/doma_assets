@@ -27,6 +27,11 @@ vê se concordou com a guarda das respostas da Travessia e pode **retirar o cons
 
 Com a caixa, o bloco ficou: computador 980 × 1000 (igual), tablet 753 × 940 (era 900), celular 375 × 860 (era 680).
 
+## Menu do cabeçalho
+
+No mesmo dia o menu do cabeçalho ficou mais junto (espaço entre itens 3, preenchimento lateral do item 4),
+para "Loja Doma" caber inteiro em telas a partir de 1024 de largura.
+
 ## Teste
 
 O teste com um Wix de mentira (nove situações) está descrito no fim deste arquivo; todas passaram em 21/11/2026.
