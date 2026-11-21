@@ -1,0 +1,159 @@
+<!-- =====================================================================
+     PRIVACIDADE (LGPD) - RETIRAR O CONSENTIMENTO
+     Cole este trecho logo antes do </body> do HTML da página Minha Carteira.
+     Ele acrescenta, embaixo da carteirinha, uma caixa onde a pessoa vê se
+     concordou com a guarda das respostas da Travessia e pode retirar o
+     "concordo". Conversa com o código da página (wix/pagina-minha-carteira-privacidade.js).
+     ===================================================================== -->
+<style>
+#dp-caixa{display:none !important;width:100% !important;max-width:560px !important;margin:26px auto 10px !important;padding:16px 18px !important;border:1px solid #dbe3ee !important;border-radius:14px !important;background:#f8fafc !important;box-sizing:border-box !important;text-align:left !important;font-family:Inter,'Segoe UI',Arial,sans-serif !important;color:#334155 !important;box-shadow:none !important}
+#dp-caixa.dp-visivel{display:block !important}
+#dp-caixa *{box-sizing:border-box !important;font-family:inherit !important;text-shadow:none !important;letter-spacing:0 !important;text-transform:none !important}
+#dp-caixa #dp-titulo{margin:0 0 6px !important;font-size:14px !important;line-height:1.3 !important;font-weight:800 !important;color:#0f2744 !important}
+#dp-caixa p{margin:0 0 8px !important;font-size:13px !important;line-height:1.5 !important;font-weight:400 !important;color:#334155 !important;text-align:left !important}
+#dp-caixa a{color:#0b5cab !important;text-decoration:underline !important;font-weight:600 !important}
+#dp-caixa .dp-botoes{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin:10px 0 0 !important}
+#dp-caixa button{width:auto !important;min-width:0 !important;margin:0 !important;padding:9px 14px !important;border-radius:10px !important;font-size:13px !important;line-height:1.2 !important;font-weight:700 !important;cursor:pointer !important;box-shadow:none !important;transform:none !important}
+#dp-caixa .dp-sec{background:#ffffff !important;color:#0f2744 !important;border:1px solid #cbd5e1 !important}
+#dp-caixa .dp-pri{background:#b42318 !important;color:#ffffff !important;border:1px solid #b42318 !important}
+#dp-caixa button:disabled{opacity:.6 !important;cursor:default !important}
+#dp-caixa #dp-aviso{color:#b42318 !important;font-weight:600 !important}
+</style>
+<script>
+(function () {
+    var TELA = 'tela-minha-carteira';
+    var EMAIL = 'atendimento.clinicadoma@gmail.com';
+    var estado = null;        // 'aceito' | 'retirado' | 'nenhum' | 'erro' | 'sem-login'
+    var quando = null;
+    var urlPrivacidade = null;
+    var confirmando = false;
+    var enviando = false;
+    var pedido = false;
+    var caixa = null;
+
+    function el(tag, attrs, texto) {
+        var e = document.createElement(tag);
+        for (var k in (attrs || {})) e.setAttribute(k, attrs[k]);
+        if (texto != null) e.textContent = texto;
+        return e;
+    }
+    function dataBonita(iso) {
+        try {
+            var d = new Date(iso);
+            if (isNaN(d.getTime())) return '';
+            function dois(n) { return (n < 10 ? '0' : '') + n; }
+            return dois(d.getDate()) + '/' + dois(d.getMonth() + 1) + '/' + d.getFullYear();
+        } catch (e) { return ''; }
+    }
+    function telaVisivel() {
+        var t = document.getElementById(TELA);
+        if (!t) return false;
+        return window.getComputedStyle(t).display !== 'none';
+    }
+    function falar(tipo) {
+        try { window.parent.postMessage({ tipo: tipo }, '*'); } catch (e) {}
+    }
+    function paragrafoApagar() {
+        var p = el('p');
+        p.appendChild(document.createTextNode('Para apagar o que já foi guardado, escreva para '));
+        p.appendChild(el('a', { href: 'mailto:' + EMAIL, target: '_blank', rel: 'noopener' }, EMAIL));
+        p.appendChild(document.createTextNode('.'));
+        return p;
+    }
+    function paragrafoPolitica() {
+        var p = el('p');
+        if (!urlPrivacidade) return null;
+        p.appendChild(document.createTextNode('Saiba mais na '));
+        p.appendChild(el('a', { href: urlPrivacidade, target: '_top' }, 'Política de privacidade'));
+        p.appendChild(document.createTextNode('.'));
+        return p;
+    }
+    function botao(texto, classe, id, acao) {
+        var b = el('button', { type: 'button', 'class': classe, id: id }, texto);
+        b.addEventListener('click', acao);
+        return b;
+    }
+
+    function desenhar() {
+        if (!caixa) return;
+        while (caixa.firstChild) caixa.removeChild(caixa.firstChild);
+        var mostra = estado === 'aceito' || estado === 'retirado' || estado === 'nenhum' || estado === 'erro';
+        caixa.className = mostra ? 'dp-visivel' : '';
+        if (!mostra) return;
+        caixa.appendChild(el('p', { id: 'dp-titulo' }, '🔒 Privacidade das suas respostas'));
+
+        if (estado === 'aceito') {
+            var d = dataBonita(quando);
+            if (!confirmando) {
+                caixa.appendChild(el('p', { id: 'dp-texto' }, 'Você concordou' + (d ? ' em ' + d : '') +
+                    ' que a Clínica Doma guarde na sua conta as respostas que você escreve na Travessia.'));
+                var pp = paragrafoPolitica(); if (pp) caixa.appendChild(pp);
+                var linha = el('div', { 'class': 'dp-botoes' });
+                linha.appendChild(botao('Retirar meu consentimento', 'dp-sec', 'dp-retirar', function () { confirmando = true; desenhar(); }));
+                caixa.appendChild(linha);
+            } else {
+                caixa.appendChild(el('p', { id: 'dp-confirma' }, 'Tem certeza que quer retirar o consentimento? Depois disso, o site para de guardar respostas novas da Travessia ' +
+                    'e o seu avanço nos exercícios deixa de ser salvo. Se você voltar à Travessia, o pedido aparece de novo.'));
+                caixa.appendChild(paragrafoApagar());
+                var linha2 = el('div', { 'class': 'dp-botoes' });
+                var sim = botao(enviando ? 'Retirando…' : 'Sim, retirar', 'dp-pri', 'dp-sim', function () {
+                    if (enviando) return;
+                    enviando = true; desenhar();
+                    falar('doma-consentimento-retirar');
+                    // se a página não responder, libera o botão de novo
+                    setTimeout(function () { if (enviando) { enviando = false; estado = 'erro'; desenhar(); } }, 20000);
+                });
+                var nao = botao('Cancelar', 'dp-sec', 'dp-cancelar', function () { if (enviando) return; confirmando = false; desenhar(); });
+                if (enviando) { sim.disabled = true; nao.disabled = true; }
+                linha2.appendChild(sim); linha2.appendChild(nao);
+                caixa.appendChild(linha2);
+                // a caixa cresce: garante que os botões fiquem à vista
+                try { caixa.scrollIntoView({ block: 'nearest' }); } catch (e) {}
+            }
+        } else if (estado === 'retirado') {
+            var d2 = dataBonita(quando);
+            caixa.appendChild(el('p', { id: 'dp-texto' }, 'Você retirou o consentimento' + (d2 ? ' em ' + d2 : '') +
+                '. O site não guarda respostas novas da Travessia. Se quiser voltar, o pedido aparece de novo quando você abrir a Travessia.'));
+            caixa.appendChild(paragrafoApagar());
+            var pp2 = paragrafoPolitica(); if (pp2) caixa.appendChild(pp2);
+        } else if (estado === 'nenhum') {
+            caixa.appendChild(el('p', { id: 'dp-texto' }, 'Você ainda não deu o consentimento para guardar as respostas da Travessia. ' +
+                'O pedido aparece quando você começar o Nível 1, e nada é guardado antes disso.'));
+            var pp3 = paragrafoPolitica(); if (pp3) caixa.appendChild(pp3);
+        } else {
+            caixa.appendChild(el('p', { id: 'dp-aviso' }, 'Não foi possível consultar o seu consentimento agora.'));
+            var linha3 = el('div', { 'class': 'dp-botoes' });
+            linha3.appendChild(botao('Tentar de novo', 'dp-sec', 'dp-de-novo', function () { estado = null; confirmando = false; desenhar(); falar('doma-consentimento-ler'); }));
+            caixa.appendChild(linha3);
+        }
+    }
+
+    function garantirCaixa() {
+        var t = document.getElementById(TELA);
+        if (!t) return false;
+        if (!caixa || caixa.parentNode !== t) {
+            caixa = document.getElementById('dp-caixa') || el('div', { id: 'dp-caixa' });
+            t.appendChild(caixa);
+        }
+        return true;
+    }
+
+    window.addEventListener('message', function (ev) {
+        var m = ev.data;
+        if (!m || m.tipo !== 'doma-consentimento-estado') return;
+        estado = m.estado || 'erro';
+        quando = m.quando || null;
+        if (m.urlPrivacidade) urlPrivacidade = m.urlPrivacidade;
+        enviando = false;
+        confirmando = false;
+        if (garantirCaixa()) desenhar();
+    });
+
+    // A caixa só aparece na tela "minha carteira" (pessoa logada e com carteirinha)
+    setInterval(function () {
+        if (!telaVisivel()) return;
+        if (!garantirCaixa()) return;
+        if (!pedido) { pedido = true; falar('doma-consentimento-ler'); }
+    }, 800);
+})();
+</script>
