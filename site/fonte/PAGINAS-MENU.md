@@ -57,6 +57,8 @@ O menu de cima tem o item "✨ Mais", com cinco páginas dentro: Presente Doma, 
 - A lista de serviços mostra a "imagem principal" de cada serviço, mas o formulário do Wix só grava a "imagem de capa". A função de `wix/backend-servicosImagem.web.js` copiou a capa para a imagem principal dos quatro serviços. Ela foi usada uma vez e depois tirada do site; a cópia fica aqui para o caso de um serviço novo precisar do mesmo ajuste.
 - Na Comunidade, só a administração pode criar grupos. O grupo Comunidade Doma é só para quem tem o Doma Básico ou o Doma Premium.
 
-## Pendências
+## Lista do "Mais" que não fechava (resolvido em 23/11)
 
-- Os 12 cartões do Arsenal e o Presente Doma: com o ponteiro em cima do bloco, a lista do "Mais" não fecha sozinha; fecha ao passar por outra parte do site. O Arsenal recebeu um aviso para fechar a lista quando o ponteiro entra no bloco, mas no teste a lista continuou aberta. O Wix não oferece um jeito direto de fechar a lista pelo código.
+Quando o ponteiro saía da lista do "Mais" direto para um bloco de página (Início, Presente Doma, Arsenal e as outras páginas montadas como bloco), a lista ficava aberta. O bloco é uma janela separada dentro da página, e o site deixava de "ver" o ponteiro.
+
+A correção está no arquivo de estilos do site (`wix/global.css`): enquanto a lista está aberta, o conteúdo das páginas deixa o ponteiro passar. Assim o site percebe que ele saiu da lista e a fecha; logo depois os blocos voltam a responder normalmente. Testado no Início, no Presente Doma e no Arsenal, inclusive o clique nos itens da lista e nos botões dos blocos.

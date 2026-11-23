@@ -19,11 +19,6 @@ const PRODUTOS = {
 $w.onReady(function () {
     $w('#html1').onMessage((event) => {
         const acao = (event.data && event.data.acao) || '';
-        if (acao === 'fecharMenu') {
-            // O ponteiro entrou no bloco: fecha a lista aberta do "Mais".
-            $w('#menu1').hide().then(() => $w('#menu1').show());
-            return;
-        }
         if (acao === 'abrirLojCom') {
             wixLocation.to('/category/all-products');
             return;

@@ -1,0 +1,6 @@
+/* Menu "Mais": enquanto a lista do menu está aberta, o conteúdo das páginas
+   (inclusive os blocos do Presente Doma, Ferramentas, Arsenal e outros)
+   deixa o ponteiro passar, para o site perceber que ele saiu da lista e fechá-la. */
+:root:has(.horizontal-menu [data-open="true"]) .section * {
+    pointer-events: none !important;
+}
